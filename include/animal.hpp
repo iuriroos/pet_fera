@@ -4,14 +4,22 @@
 
 using namespace std;
 
+enum Sexo {
+    Femea,
+    Macho
+};
+
 class Animal {
 public:
     Animal();
-    Animal(string especie, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool ameacadoDeExtincao);
+    Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool ameacadoDeExtincao);
     ~Animal();
 
     string getEspecie() const;
     void setEspecie(string especie);
+
+    Sexo getSexo() const;
+    void setSexo(Sexo sexo);
 
     int getTamanho() const;
     void setTamanho(int tamanho);
@@ -30,6 +38,7 @@ public:
 
 protected:
     string especie;
+    Sexo sexo;
     int tamanho;
     string cor;
     double preco;

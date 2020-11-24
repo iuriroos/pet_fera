@@ -2,8 +2,8 @@
 
 Animal::Animal() {}
 
-Animal::Animal(string especie, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool ameacadoDeExtincao)
-    : especie(especie), tamanho(tamanho), cor(cor), preco(preco), tipoDeAlimentacao(tipoDeAlimentacao), ameacadoDeExtincao(ameacadoDeExtincao) {}
+Animal::Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool ameacadoDeExtincao)
+    : especie(especie), sexo(sexo), tamanho(tamanho), cor(cor), preco(preco), tipoDeAlimentacao(tipoDeAlimentacao), ameacadoDeExtincao(ameacadoDeExtincao) {}
 
 Animal::~Animal() {}
 
@@ -13,6 +13,14 @@ string Animal::getEspecie() const {
 
 void Animal::setEspecie(string especie) {
     this->especie = especie; 
+}
+
+Sexo Animal::getSexo() const {
+    return this->sexo;
+}
+
+void Animal::setSexo(Sexo sexo) {
+    this->sexo = sexo;
 }
 
 int Animal::getTamanho() const {
