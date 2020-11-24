@@ -20,7 +20,7 @@ public:
 	void setMatricula(string matricula);
 	void setSalario(double salario);
 	void setNascimento(string nascimento);
-private:
+protected:
 	string nome;
 	string cpf;
 	string matricula;
