@@ -7,7 +7,7 @@ using namespace std;
 class Aves : public Animal{  
 public:
     Aves();
-    Aves(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool ameacadoDeExtincao, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas);
+    Aves(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas);
     ~Aves();
 
     void voar();
