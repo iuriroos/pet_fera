@@ -11,6 +11,7 @@ public:
 	~Veterinario();
 	string getCrmv() const;
 	void setCrmv(string crmv);
+	friend ostream& operator<< (ostream& o, Veterinario* const v);
 private:
 	string crmv;
 };
