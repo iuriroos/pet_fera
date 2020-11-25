@@ -12,7 +12,7 @@ enum Sexo {
 class Animal {
 public:
     Animal();
-    Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool ameacadoDeExtincao);
+    Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao);
     ~Animal();
 
     string getEspecie() const;
@@ -33,9 +33,6 @@ public:
     string getTipoDeAlimentacao() const;
     void setTipoDeAlimentacao(string tipoDeAlimentacao);
 
-    bool getAmeacadoDeExtincao() const;
-    void setAmeacadoDeExtincao(bool ameacadoDeExtincao);
-
 protected:
     string especie;
     Sexo sexo;
@@ -43,5 +40,4 @@ protected:
     string cor;
     double preco;
     string tipoDeAlimentacao;
-    bool ameacadoDeExtincao;
 };

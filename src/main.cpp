@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Animal.hpp"
 
 using namespace std;
 
