@@ -9,7 +9,7 @@ Mamiferos::~Mamiferos() {}
 void Mamiferos::voar(){
     if (this->tipo == Voador && this->temAsas){
         cout << this->especie << " está voando!" << endl;
-    }else if (this->tipo == Voador){
+    }else if (this->tipo == Voador && this->temAsas == false){
         cout << this->especie << " está planando!" << endl;
     }else{
         cout << this->especie << " não pode voar!" << endl;
@@ -45,8 +45,7 @@ void Mamiferos::saltar(){
         cout << this->especie << " está saltando!" << endl;
     }else{
         cout << this->especie << " não salta!" << endl;
-    }
-    
+    }  
 }
 
 string Mamiferos::getHabitat() const{
