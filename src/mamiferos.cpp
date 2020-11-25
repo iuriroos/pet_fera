@@ -16,6 +16,39 @@ void Mamiferos::voar(){
     }  
 }
 
+void Mamiferos::cavar(){
+    if (this->tipo == Fossorial){
+        cout << this->especie << " está cavando!" << endl;
+    }else{
+        cout << this->especie << " não cava buracos!" << endl;
+    }
+}
+
+void Mamiferos::correr(){
+    if (this->tipo != Aquatico){
+        cout << this->especie << " está correndo!" << endl;
+    }else{
+        cout << this->especie << " não corre!" << endl;
+    }
+}
+
+void Mamiferos::nadar(){
+    if (this->tipo == Aquatico){
+        cout << this->especie << " está nadando!" << endl;
+    }else{
+        cout << this->especie << " não nada!" << endl;
+    }
+}
+
+void Mamiferos::saltar(){
+    if (this->tipo == Saltador || this->tipo == Arboricola){
+        cout << this->especie << " está saltando!" << endl;
+    }else{
+        cout << this->especie << " não salta!" << endl;
+    }
+    
+}
+
 string Mamiferos::getHabitat() const{
     return this->habitat;
 }

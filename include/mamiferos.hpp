@@ -22,7 +22,7 @@ public:
     ~Mamiferos();
 
     void voar();
-    void andar();
+    void cavar();
     void correr();
     void nadar();
     void saltar();
