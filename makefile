@@ -56,7 +56,7 @@ $(OBJ)/petfera.o: $(SRC)/petfera.cpp $(INC)/petfera.hpp
 $(OBJ)/menu.o: $(SRC)/menu.cpp $(INC)/menu.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/menu.cpp -o $(OBJ)/menu.o
 
-$(OBJ)/main.o: $(SRC)/main.cpp $(INC)/animal.hpp
+$(OBJ)/main.o: $(SRC)/main.cpp $(INC)/menu.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
 
 clean: 
