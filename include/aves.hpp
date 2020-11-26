@@ -7,7 +7,7 @@ using namespace std;
 class Aves : public virtual Animal {  
 public:
     Aves();
-    Aves(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas);
+    Aves(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas);
     ~Aves();
 
     void voar();

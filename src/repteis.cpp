@@ -2,8 +2,8 @@
 #include <iostream>
 
 Repteis::Repteis() {}
-Repteis::Repteis(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar):
-         Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao), temPernas(temPernas), temNadadeiras(temNadadeiras), venenoso(venenoso), peconhento(peconhento), poeOvos(poeOvos), temCarapaca(temCarapaca), consegueNadar(consegueNadar) {}
+Repteis::Repteis(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar):
+         Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinario, tratador), temPernas(temPernas), temNadadeiras(temNadadeiras), venenoso(venenoso), peconhento(peconhento), poeOvos(poeOvos), temCarapaca(temCarapaca), consegueNadar(consegueNadar) {}
 Repteis::~Repteis() {}
 
 void Repteis::nadar(){

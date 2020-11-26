@@ -2,6 +2,8 @@
 
 #include <string>
 #include <iostream>
+#include "veterinario.hpp"
+#include "tratador.hpp"
 
 using namespace std;
 
@@ -13,7 +15,7 @@ enum Sexo {
 class Animal {
 public:
     Animal();
-    Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao);
+    Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador);
     ~Animal();
 
     string getEspecie() const;
@@ -34,6 +36,12 @@ public:
     string getTipoDeAlimentacao() const;
     void setTipoDeAlimentacao(string tipoDeAlimentacao);
 
+    Veterinario* getVeterinario();
+    void setVeterinario(Veterinario* novo);
+
+    Tratador* getTratador();
+    void setTratador(Tratador* novo);
+
     friend ostream& operator<< (ostream& o, Animal* const a);
 protected:
     string especie;
@@ -42,4 +50,6 @@ protected:
     string cor;
     double preco;
     string tipoDeAlimentacao;
+    Veterinario* veterinario;
+    Tratador* tratador;
 };

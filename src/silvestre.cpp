@@ -2,8 +2,8 @@
 
 Silvestre::Silvestre() {}
 
-Silvestre::Silvestre(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, ETipoSilvestre tipoSilvestre, string origem, bool ameacadoDeExtincao)
-    : Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao), tipoSilvestre(tipoSilvestre), origem(origem), ameacadoDeExtincao(ameacadoDeExtincao) {}
+Silvestre::Silvestre(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, ETipoSilvestre tipoSilvestre, string origem, bool ameacadoDeExtincao)
+    : Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinario, tratador), tipoSilvestre(tipoSilvestre), origem(origem), ameacadoDeExtincao(ameacadoDeExtincao) {}
 
 Silvestre::~Silvestre() {}
 

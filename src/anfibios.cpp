@@ -2,8 +2,8 @@
 #include <iostream>
 
 Anfibios::Anfibios() {}
-Anfibios::Anfibios(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, string corDaPele, bool venenoso, bool temPernas):
-          Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao), corDaPele(corDaPele), venenoso(venenoso), temPernas(temPernas) {}
+Anfibios::Anfibios(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string corDaPele, bool venenoso, bool temPernas):
+          Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinario, tratador), corDaPele(corDaPele), venenoso(venenoso), temPernas(temPernas) {}
 Anfibios::~Anfibios() {}
 
 void Anfibios::nadar(){

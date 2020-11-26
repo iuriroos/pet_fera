@@ -2,8 +2,8 @@
 
 Animal::Animal() {}
 
-Animal::Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao)
-    : especie(especie), sexo(sexo), tamanho(tamanho), cor(cor), preco(preco), tipoDeAlimentacao(tipoDeAlimentacao) {}
+Animal::Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador)
+    : especie(especie), sexo(sexo), tamanho(tamanho), cor(cor), preco(preco), tipoDeAlimentacao(tipoDeAlimentacao), veterinario(veterinario), tratador(tratador) {}
 
 Animal::~Animal() {}
 
@@ -53,6 +53,22 @@ string Animal::getTipoDeAlimentacao() const {
 
 void Animal::setTipoDeAlimentacao(string tipoDeAlimentacao) {
     this->tipoDeAlimentacao = tipoDeAlimentacao; 
+}
+
+Veterinario* Animal::getVeterinario() {
+    return this->veterinario;
+}
+
+void Animal::setVeterinario(Veterinario* novo) {
+    this->veterinario = novo;
+}
+
+Tratador* Animal::getTratador() {
+    return this->tratador;
+}
+
+void Animal::setTratador(Tratador* novo) {
+    this->tratador = novo;
 }
 
 ostream& operator<< (ostream& o, Animal* const a) {

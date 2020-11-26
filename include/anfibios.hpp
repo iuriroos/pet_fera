@@ -8,7 +8,7 @@ class Anfibios : public virtual Animal{
     
 public:
     Anfibios();
-    Anfibios(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, string corDaPele, bool venenoso, bool temPernas);
+    Anfibios(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string corDaPele, bool venenoso, bool temPernas);
     ~Anfibios();
 
     void saltar();

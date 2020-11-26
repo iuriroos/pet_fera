@@ -2,8 +2,8 @@
 #include <iostream>
 
 Aves::Aves() {}
-Aves::Aves(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas): 
-      Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao), corDasPenas(corDasPenas), tamanhoDoBico(tamanhoDoBico), tamanhoDasPenas(tamanhoDasPenas) {}
+Aves::Aves(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas): 
+      Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinario, tratador), corDasPenas(corDasPenas), tamanhoDoBico(tamanhoDoBico), tamanhoDasPenas(tamanhoDasPenas) {}
 Aves::~Aves() {}
 
 void Aves::voar(){

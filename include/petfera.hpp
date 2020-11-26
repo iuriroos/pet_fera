@@ -21,7 +21,7 @@ public:
     bool alterarFuncionario(string nome);
     bool listarFuncionario(string nome);
 
-    void cadastrarAnimal();
+    bool cadastrarAnimal();
     void RemoverAnimal(string nome);
     void AtualizarAnimal(string nome);
     void ListarAnimais();

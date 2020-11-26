@@ -8,7 +8,7 @@ class Repteis : public virtual Animal{
     
 public:
     Repteis();
-    Repteis(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar);
+    Repteis(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar);
     ~Repteis();
 
     void nadar();

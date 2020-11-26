@@ -269,31 +269,60 @@ bool PetFera::listarFuncionario(string nome) {
     return false;
 }
 
-void PetFera::cadastrarAnimal() {
-    string especie, cor, tipoDeAlimentacao, origem;
+bool PetFera::cadastrarAnimal() {
+    string especie, cor, tipoDeAlimentacao, origem, nome;
     Sexo sexo;
     int tamanho, tipoClassificacao;
     double preco;
     ETipoSilvestre tipoSilvestre;
-    bool ameacadoDeExtincao;
-    
+    bool ameacadoDeExtincao, encontrouVet = false, encontrouTrat = false;
+
+    Veterinario* veterinarioResponsavel;
+    Tratador* tratadorResponsavel;
     Animal* animal;
 
     char sexoC;
     char ESilvestre;
     char EameacadoDeExtincao;
-    char ENativo;
 
-    cout << "Especie: ";
+    cout << "Qual sera o nome do veterinario responsavel?" << endl;
+    cin >> nome;
+
+    // Procura nome em veterinarios
+    for (auto& veterinario : this->veterinarios) {
+        if (veterinario->getNome() == nome) {
+            veterinarioResponsavel = veterinario;
+            encontrouVet = true;
+        }
+    }
+
+    cout << "Qual sera o nome do tratador responsavel?" << endl;
+    cin >> nome;
+
+    // Procura nome em tratadores
+    for (auto& tratador : this->tratadores) {
+        if (tratador->getNome() == nome) {
+            tratadorResponsavel = tratador;
+            encontrouTrat = true;
+        }
+    }
+
+    if (!encontrouVet || !encontrouTrat) {
+        return false;
+    }
+
+    cout << "Nome: ";
     cin >> especie;
-    cout << "cor: ";
+    cout << "Cor: ";
     cin >> cor;
-    cout << "tipo de alimentacao: ";
+    cout << "Tipo de alimentacao: ";
     cin >> tipoDeAlimentacao;
     cout << "Sexo (F | M): ";
     cin >> sexoC;
 
-    if (sexoC == 'F') {
+    assert(sexoC == 'F' || sexoC == 'f' || sexoC == 'M' || sexoC == 'm');
+
+    if (sexoC == 'F' || sexoC == 'f') {
         sexo = Sexo::Femea;
     } else
     {
@@ -302,30 +331,33 @@ void PetFera::cadastrarAnimal() {
 
     cout << "Tamanho em cm: ";
     cin >> tamanho;
-    cout << "preço: ";
+    cout << "Preco: ";
     cin >> preco;
-    cout << "O Animal é: (1) Ave, (2) Anfibio, (3) Mamifero, (4) Reptel: ";
+    cout << "O Animal eh: (1) Ave, (2) Anfibio, (3) Mamifero, (4) Reptil: ";
     cin >> tipoClassificacao;
+
+    assert(tipoClassificacao == 1 || tipoClassificacao == 2 || tipoClassificacao == 3 || tipoClassificacao == 4);
     
-    cout << "É silvestre? (S | N): ";
+    cout << "Eh silvestre? (S | N): ";
     cin >> ESilvestre;
+
+    assert(ESilvestre == 'S' || ESilvestre == 's' || ESilvestre == 'N' || ESilvestre == 'n');
     
     if (ESilvestre == 'S') {
-        cout << "É Nativo? (S | N): ";
-        cin >> ENativo;
-        
-        if (ENativo == 'S') {
+        cout << "Qual o pais de origem? ";
+        cin >> origem;
+
+        if (origem == "Brasil" || origem == "brasil") {
             tipoSilvestre = ETipoSilvestre::Nativo;
-            origem = "Brasil";
-        } else {
+        }
+        else {
             tipoSilvestre = ETipoSilvestre::Exotico;
-            
-            cout << "origem: ";
-            cin >> origem;
         }
         
-        cout << "Está ameaçado de Extenção? (S | N): ";
+        cout << "Esta ameacado de Extincao? (S | N): ";
         cin >> EameacadoDeExtincao;
+
+        assert(EameacadoDeExtincao == 'S' || EameacadoDeExtincao == 's' || EameacadoDeExtincao == 'N' || EameacadoDeExtincao == 'n');
 
         ameacadoDeExtincao = EameacadoDeExtincao == 'S';
     }
@@ -337,16 +369,26 @@ void PetFera::cadastrarAnimal() {
         switch (tipoClassificacao)
         {
             case 1:
+                // Ave
                 cout << "Cor das penas: ";
                 cin >> corDasPenas;
 
-                cout << "tamanho do bico: ";
+                cout << "Tamanho do bico em cm: ";
                 cin >> tamanhoDoBico;
                 
-                cout << "tamanho das penas: ";
+                cout << "Tamanho das penas em cm: ";
                 cin >> tamanhoDasPenas;
 
-                animal = new AvesSilvestres(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, tipoSilvestre, origem, ameacadoDeExtincao, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                animal = new AvesSilvestres(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                break;
+            case 2:
+                // Anfibio
+                break;
+            case 3:
+                // Mamifero
+                break;
+            case 4:
+                // Reptil
                 break;
             default:
                 break;
@@ -355,24 +397,35 @@ void PetFera::cadastrarAnimal() {
         switch (tipoClassificacao)
         {
             case 1:
+                // Ave
                 cout << "Cor das penas: ";
                 cin >> corDasPenas;
 
-                cout << "tamanho do bico: ";
+                cout << "Tamanho do bico em cm: ";
                 cin >> tamanhoDoBico;
                 
-                cout << "tamanho das penas: ";
+                cout << "Tamanho das penas em cm: ";
                 cin >> tamanhoDasPenas;
 
-                animal = new Aves(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                animal = new Aves(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                break;
+            case 2:
+                // Anfibio
+                break;
+            case 3:
+                // Mamifero
+                break;
+            case 4:
+                // Reptil
                 break;
             default:
                 break;
         }
     }
 
-
     this->animais.push_back(animal);
+
+    return true;
 }
 
 void PetFera::RemoverAnimal(string nome) {}

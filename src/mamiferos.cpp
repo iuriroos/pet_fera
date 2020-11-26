@@ -2,8 +2,8 @@
 #include <iostream>
 
 Mamiferos::Mamiferos() {}
-Mamiferos::Mamiferos(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, string habitat, Tipo tipo, string corDosPelos, int quantidadeDeDentes, bool temAsas):
-           Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao), habitat(habitat), tipo(tipo), corDosPelos(corDosPelos), quantidadeDeDentes(quantidadeDeDentes), temAsas(temAsas) {}
+Mamiferos::Mamiferos(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string habitat, Tipo tipo, string corDosPelos, int quantidadeDeDentes, bool temAsas):
+           Animal(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinario, tratador), habitat(habitat), tipo(tipo), corDosPelos(corDosPelos), quantidadeDeDentes(quantidadeDeDentes), temAsas(temAsas) {}
 Mamiferos::~Mamiferos() {}
 
 void Mamiferos::voar(){

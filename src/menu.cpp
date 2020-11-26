@@ -27,7 +27,12 @@ int menuPetFera(PetFera* petfera) {
 
         switch (op) {
             case 1:
-                petfera->cadastrarAnimal();
+                if (petfera->cadastrarAnimal()) {
+                    cout << endl << "Animal cadastrado com sucesso." << endl;
+                }
+                else {
+                    cout << endl << "Veterinario ou tratador nao encontrado! Tente novamente." << endl;
+                }
                 break;
             case 2:
                 cout << "Digite o nome do animal a ser comprado: ";
@@ -35,22 +40,22 @@ int menuPetFera(PetFera* petfera) {
                 petfera->RemoverAnimal(nome);
                 break;
             case 3:
-                cout << "Digite o nome do animal a ser Removido: ";
+                cout << "Digite o nome do animal a ser alterado: ";
                 cin >> nome;
                 petfera->AtualizarAnimal(nome);
                 break;
             case 4:
-                cout << "Digite o nome do animal para vê os dados: ";
+                cout << "Digite o nome do animal para ver os dados: ";
                 cin >> nome;
                 petfera->DadosAnimail(nome);
                 break;
             case 5:
-                cout << "Digite o nome do animal para vê os dados: ";
+                cout << "Digite a opcao de classe animal para ver os dados (1) Ave, (2) Anfibio, (3) Mamifero, (4) Reptil: ";
                 cin >> nome;
                 petfera->DadosDeUmaClasseAnimal(nome);
                 break;
             case 6:
-                cout << "Digite o nome do funcionario para vês os animais: ";
+                cout << "Digite o nome do funcionario para ver os animais: ";
                 cin >> nome;
                 petfera->ListarAnimaisPorFuncionario(nome);
                 break;
