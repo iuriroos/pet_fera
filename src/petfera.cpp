@@ -1,5 +1,6 @@
 #include "petfera.hpp"
 #include "avessilvestres.hpp"
+#include "anfibiossilvestres.hpp"
 #include "mamiferossilvestres.hpp"
 
 PetFera::PetFera() {}
@@ -373,6 +374,10 @@ bool PetFera::cadastrarAnimal() {
     char temAsasC;
     bool temAsas;
 
+    string corDaPele;
+    char venenosoC, temPernasC;
+    bool venenoso, temPernas;
+
     if (ESilvestre == 'S') {
         switch (tipoClassificacao)
         {
@@ -391,6 +396,22 @@ bool PetFera::cadastrarAnimal() {
                 break;
             case 2:
                 // Anfibio
+                cout << "cor da pele: ";
+                cin >> corDaPele;
+
+                cout << "É venenoso? (S | N): ";
+                cin >> venenosoC;
+
+                if (venenosoC == 'S')
+                    venenoso = true;
+                    
+                cout << "Tem Pernas? (S | N): ";
+                cin >> temPernasC;
+
+                if (temPernasC == 'S')
+                    temPernas = true;
+
+                animal = new AnfibiosSilvestres(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, corDaPele, venenoso, temPernas);
                 break;
             case 3:
                 // Mamifero
@@ -438,6 +459,22 @@ bool PetFera::cadastrarAnimal() {
                 break;
             case 2:
                 // Anfibio
+                cout << "cor da pele: ";
+                cin >> corDaPele;
+
+                cout << "É venenoso? (S | N): ";
+                cin >> venenosoC;
+
+                if (venenosoC == 'S')
+                    venenoso = true;
+                    
+                cout << "Tem Pernas? (S | N): ";
+                cin >> temPernasC;
+
+                if (temPernasC == 'S')
+                    temPernas = true;
+
+                animal = new Anfibios(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, corDaPele, venenoso, temPernas);
                 break;
             case 3:
                 // Mamifero
