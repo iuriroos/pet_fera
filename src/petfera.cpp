@@ -107,20 +107,143 @@ bool PetFera::removerFuncionario(string nome) {
 }
 
 bool PetFera::alterarFuncionario(string nome) {
-    // Procura nome em veterinarios
-    for (auto& veterinario : this->veterinarios) {
+    int index = 0;
+    string nomeFuncionario, cpf, matricula, nascimento, crmv, cor;
+    Cor nivel_de_seguranca = Cor::Nenhum;
+    char escolha;
+    //double salario = 0;
+    //auto pos_vet = this->veterinarios.begin();
+
+    // Update de veterinarios
+    for (const auto& veterinario : this->veterinarios) {
         if (veterinario->getNome() == nome) {
-            cout << veterinario << endl;
+            // Nome
+            cout << "Alterar nome? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo nome: ";
+                cin >> nomeFuncionario;
+                veterinario->setNome(nomeFuncionario);
+            }
+
+            // CPF
+            cout << "Alterar CPF? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo CPF: ";
+                cin >> cpf;
+                veterinario->setCpf(cpf);
+            }
+
+            // Matricula
+            cout << "Alterar matricula? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Nova matricula: ";
+                cin >> matricula;
+                veterinario->setMatricula(matricula);
+            }
+
+            // Data de nascimento
+            cout << "Alterar data de nascimento? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Nova data de nascimento: ";
+                cin >> nascimento;
+                veterinario->setNascimento(nascimento);
+            }
+
+            // CRMV
+            cout << "Alterar CRMV? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo CRMV: ";
+                cin >> crmv;
+                veterinario->setCrmv(crmv);
+            }
+
             return true;
         }
+        index++;
     }
 
-    // Procura nome em tratadores
-    for (auto& tratador : this->tratadores) {
+    index = 0;
+    //auto pos_trat = this->tratadores.begin();
+
+    // Update de tratadores
+    for (const auto& tratador : this->tratadores) {
         if (tratador->getNome() == nome) {
-            cout << tratador << endl;
+            // Nome
+            cout << "Alterar nome? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo nome: ";
+                cin >> nomeFuncionario;
+                tratador->setNome(nomeFuncionario);
+            }
+
+            // CPF
+            cout << "Alterar CPF? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo CPF: ";
+                cin >> cpf;
+                tratador->setCpf(cpf);
+            }
+
+            // Matricula
+            cout << "Alterar matricula? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Nova matricula: ";
+                cin >> matricula;
+                tratador->setMatricula(matricula);
+            }
+
+            // Data de nascimento
+            cout << "Alterar data de nascimento? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Nova data de nascimento: ";
+                cin >> nascimento;
+                tratador->setNascimento(nascimento);
+            }
+
+            // Nivel de seguranca
+            cout << "Alterar nivel de seguranca? (S | N) ";
+            cin >> escolha;
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo nivel de seguranca (Verde | Azul | Vermelho): ";
+                cin >> cor;
+
+                assert(cor == "Verde" || cor == "Azul" || cor == "Vermelho" || cor == "verde" || cor == "azul" || cor == "vermelho");
+
+                if (cor == "Verde" || cor == "verde") {
+                    nivel_de_seguranca = Cor::Verde;
+                }
+                else if (cor == "Azul" || cor == "azul") {
+                    nivel_de_seguranca = Cor::Azul;
+                }
+                else if (cor == "Vermelho" || cor == "vermelho") {
+                    nivel_de_seguranca = Cor::Vermelho;
+                }
+
+                tratador->setNivelDeSeguranca(nivel_de_seguranca);
+            }
+
             return true;
         }
+        index++;
     }
 
     return false;
