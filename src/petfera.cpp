@@ -169,6 +169,14 @@ void PetFera::cadastrarAnimal() {
     cin >> tipoDeAlimentacao;
     cout << "Sexo (F | M): ";
     cin >> sexoC;
+
+    if (sexoC == 'F') {
+        sexo = Sexo::Femea;
+    } else
+    {
+        sexo = Sexo::Macho;
+    }
+
     cout << "Tamanho em cm: ";
     cin >> tamanho;
     cout << "preço: ";

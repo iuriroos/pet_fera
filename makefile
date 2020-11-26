@@ -9,7 +9,7 @@ PROG1 = $(BIN)/petfera
 
 CPPFLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
-OBJS1 = $(OBJ)/animal.o $(OBJ)/silvestre.o $(OBJ)/domestico.o $(OBJ)/funcionario.o $(OBJ)/anfibios.o $(OBJ)/aves.o $(OBJ)/mamiferos.o $(OBJ)/repteis.o $(OBJ)/repteissilvestres.o $(OBJ)/mamiferossilvestres.o $(OBJ)/veterinario.o $(OBJ)/tratador.o $(OBJ)/petfera.o $(OBJ)/menu.o $(OBJ)/main.o
+OBJS1 = $(OBJ)/animal.o $(OBJ)/silvestre.o $(OBJ)/domestico.o $(OBJ)/funcionario.o $(OBJ)/anfibios.o $(OBJ)/aves.o $(OBJ)/mamiferos.o $(OBJ)/repteis.o $(OBJ)/repteissilvestres.o $(OBJ)/mamiferossilvestres.o $(OBJ)/avessilvestres.o $(OBJ)/veterinario.o $(OBJ)/tratador.o $(OBJ)/petfera.o $(OBJ)/menu.o $(OBJ)/main.o
 
 all: mkdirs $(PROG1)
 
@@ -43,6 +43,9 @@ $(OBJ)/repteissilvestres.o: $(SRC)/repteissilvestres.cpp $(INC)/repteissilvestre
 
 $(OBJ)/mamiferossilvestres.o: $(SRC)/mamiferossilvestres.cpp $(INC)/mamiferossilvestres.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/mamiferossilvestres.cpp -o $(OBJ)/mamiferossilvestres.o
+
+$(OBJ)/avessilvestres.o: $(SRC)/avessilvestres.cpp $(INC)/avessilvestres.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/avessilvestres.cpp -o $(OBJ)/avessilvestres.o
 
 $(OBJ)/domestico.o: $(SRC)/domestico.cpp $(INC)/domestico.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/domestico.cpp -o $(OBJ)/domestico.o

@@ -21,7 +21,7 @@ public:
     double getTamanhoDasPenas() const;
     void setTamanhoDasPenas(double tamanhoDasPenas);
 
-private:
+protected:
     string corDasPenas;
     double tamanhoDoBico;
     double tamanhoDasPenas;
