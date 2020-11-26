@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class RepteisSilvestre : public virtual Repteis, public virtual Silvestre
+class RepteisSilvestre : public Repteis, public Silvestre
 {   
 public:
     RepteisSilvestre();

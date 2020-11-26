@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class AvesSilvestres : public virtual Aves, public virtual Silvestre{  
+class AvesSilvestres : public Aves, public Silvestre{  
 public:
     AvesSilvestres();
     AvesSilvestres(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, ETipoSilvestre tipoSilvestre, string origem, bool ameacadoDeExtincao, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas);
