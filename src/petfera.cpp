@@ -1,4 +1,5 @@
 #include "petfera.hpp"
+#include "silvestre.hpp"
 
 PetFera::PetFera() {}
 
@@ -145,7 +146,66 @@ bool PetFera::listarFuncionario(string nome) {
     return false;
 }
 
-void PetFera::cadastrarAnimal() {}
+void PetFera::cadastrarAnimal() {
+    string especie, cor, tipoDeAlimentacao, origem;
+    Sexo sexo;
+    int tamanho, tipoClassificacao;
+    double preco;
+    ETipoSilvestre tipoSilvestre;
+    bool ameacadoDeExtincao;
+    
+    Animal* animal;
+
+    char sexoC;
+    char ESilvestre;
+    char EameacadoDeExtincao;
+    char ENativo;
+
+    cout << "Especie: ";
+    cin >> especie;
+    cout << "cor: ";
+    cin >> cor;
+    cout << "tipo de alimentacao: ";
+    cin >> tipoDeAlimentacao;
+    cout << "Sexo (F | M): ";
+    cin >> sexoC;
+    cout << "Tamanho em cm: ";
+    cin >> tamanho;
+    cout << "preço: ";
+    cin >> preco;
+    cout << "O Animal é: (1) Ave, (2) Anfibio, (3) Mamifero, (4) Reptel: ";
+    cin >> tipoClassificacao;
+    
+    cout << "É silvestre? (S | N): ";
+    cin >> ESilvestre;
+    
+    if (ESilvestre == 'S') {
+        cout << "É Nativo? (S | N): ";
+        cin >> ENativo;
+        
+        if (ENativo == 'S') {
+            tipoSilvestre = ETipoSilvestre::Nativo;
+            origem = "Brasil";
+        } else {
+            tipoSilvestre = ETipoSilvestre::Exotico;
+            
+            cout << "origem: ";
+            cin >> origem;
+        }
+        
+        cout << "Está ameaçado de Extenção? (S | N): ";
+        cin >> EameacadoDeExtincao;
+
+        ameacadoDeExtincao = EameacadoDeExtincao == 'S';
+        
+        animal = new Silvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, tipoSilvestre, origem, ameacadoDeExtincao);
+    } else {
+
+    }
+
+    this->animais.push_back(animal);
+}
+
 void PetFera::RemoverAnimal(string nome) {}
 void PetFera::AtualizarAnimal(string nome) {}
 void PetFera::ListarAnimais() {}
