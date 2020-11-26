@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Aves : public Animal{  
+class Aves : public virtual Animal {  
 public:
     Aves();
     Aves(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, string corDasPenas, double tamanhoDoBico, double tamanhoDasPenas);
@@ -21,6 +21,8 @@ public:
     double getTamanhoDasPenas() const;
     void setTamanhoDasPenas(double tamanhoDasPenas);
 
+    friend ostream& operator<< (ostream& o, Animal* const a);
+    
 protected:
     string corDasPenas;
     double tamanhoDoBico;

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Repteis : public Animal{
+class Repteis : public virtual Animal{
     
 public:
     Repteis();

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -33,6 +34,7 @@ public:
     string getTipoDeAlimentacao() const;
     void setTipoDeAlimentacao(string tipoDeAlimentacao);
 
+    friend ostream& operator<< (ostream& o, Animal* const a);
 protected:
     string especie;
     Sexo sexo;

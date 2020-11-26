@@ -27,16 +27,32 @@ int menuPetFera(PetFera* petfera) {
 
         switch (op) {
             case 1:
+                petfera->cadastrarAnimal();
                 break;
             case 2:
+                cout << "Digite o nome do animal a ser comprado: ";
+                cin >> nome;
+                petfera->RemoverAnimal(nome);
                 break;
             case 3:
+                cout << "Digite o nome do animal a ser Removido: ";
+                cin >> nome;
+                petfera->AtualizarAnimal(nome);
                 break;
             case 4:
+                cout << "Digite o nome do animal para vê os dados: ";
+                cin >> nome;
+                petfera->DadosAnimail(nome);
                 break;
             case 5:
+                cout << "Digite o nome do animal para vê os dados: ";
+                cin >> nome;
+                petfera->DadosDeUmaClasseAnimal(nome);
                 break;
             case 6:
+                cout << "Digite o nome do funcionario para vês os animais: ";
+                cin >> nome;
+                petfera->ListarAnimaisPorFuncionario(nome);
                 break;
             case 7:
                 petfera->cadastrarFuncionario();

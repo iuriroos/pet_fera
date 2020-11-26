@@ -9,7 +9,7 @@ enum ETipoSilvestre {
     Exotico
 };
 
-class Silvestre : public Animal {
+class Silvestre : public virtual Animal {
 public:
     Silvestre();
     Silvestre(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, ETipoSilvestre tipoSilvestre, string origem, bool ameacadoDeExtincao);

@@ -25,7 +25,9 @@ public:
     void RemoverAnimal(string nome);
     void AtualizarAnimal(string nome);
     void ListarAnimais();
+    void DadosAnimail(string nome);
     void ListarAnimaisPorFuncionario(string nomeFuncionario);
+    void DadosDeUmaClasseAnimal(string nome);
 
 private:
     vector<Veterinario*> veterinarios;

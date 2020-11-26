@@ -1,5 +1,5 @@
 #include "petfera.hpp"
-#include "silvestre.hpp"
+#include "avessilvestres.hpp"
 
 PetFera::PetFera() {}
 
@@ -328,16 +328,62 @@ void PetFera::cadastrarAnimal() {
         cin >> EameacadoDeExtincao;
 
         ameacadoDeExtincao = EameacadoDeExtincao == 'S';
-        
-        animal = new Silvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, tipoSilvestre, origem, ameacadoDeExtincao);
-    } else {
-
     }
+
+    string corDasPenas;
+    double tamanhoDoBico, tamanhoDasPenas;
+
+    if (ESilvestre == 'S') {
+        switch (tipoClassificacao)
+        {
+            case 1:
+                cout << "Cor das penas: ";
+                cin >> corDasPenas;
+
+                cout << "tamanho do bico: ";
+                cin >> tamanhoDoBico;
+                
+                cout << "tamanho das penas: ";
+                cin >> tamanhoDasPenas;
+
+                animal = new AvesSilvestres(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, tipoSilvestre, origem, ameacadoDeExtincao, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch (tipoClassificacao)
+        {
+            case 1:
+                cout << "Cor das penas: ";
+                cin >> corDasPenas;
+
+                cout << "tamanho do bico: ";
+                cin >> tamanhoDoBico;
+                
+                cout << "tamanho das penas: ";
+                cin >> tamanhoDasPenas;
+
+                animal = new Aves(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     this->animais.push_back(animal);
 }
 
 void PetFera::RemoverAnimal(string nome) {}
 void PetFera::AtualizarAnimal(string nome) {}
-void PetFera::ListarAnimais() {}
+
+void PetFera::DadosAnimail(string nome) {
+    for (auto& animal : this->animais) {
+        if (animal->getEspecie() == nome) {
+            cout << animal << endl;
+        }
+    }
+}
 void PetFera::ListarAnimaisPorFuncionario(string nomeFuncionario) {}
+void PetFera::DadosDeUmaClasseAnimal(string nome) {}

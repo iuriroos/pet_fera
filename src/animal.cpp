@@ -54,3 +54,13 @@ string Animal::getTipoDeAlimentacao() const {
 void Animal::setTipoDeAlimentacao(string tipoDeAlimentacao) {
     this->tipoDeAlimentacao = tipoDeAlimentacao; 
 }
+
+ostream& operator<< (ostream& o, Animal* const a) {
+	o <<
+		"Especies: " << a->getEspecie() << endl <<
+		"Cor: " << a->getCor() << endl <<
+		"Preço: " << a->getPreco() << endl <<
+		"Tipo de Alimentação: " << a->getTipoDeAlimentacao();
+
+	return o;
+}

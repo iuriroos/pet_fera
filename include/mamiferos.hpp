@@ -14,7 +14,7 @@ enum Tipo{
     Aquatico
 };
 
-class Mamiferos : public Animal{
+class Mamiferos : public virtual Animal{
     
 public:
     Mamiferos();
