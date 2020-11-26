@@ -1,5 +1,6 @@
 #include "petfera.hpp"
 #include "avessilvestres.hpp"
+#include "mamiferossilvestres.hpp"
 
 PetFera::PetFera() {}
 
@@ -365,6 +366,13 @@ bool PetFera::cadastrarAnimal() {
     string corDasPenas;
     double tamanhoDoBico, tamanhoDasPenas;
 
+    string habitat;
+    int tipoMamifero;
+    string corDosPelos; 
+    int quantidadeDeDentes; 
+    char temAsasC;
+    bool temAsas;
+
     if (ESilvestre == 'S') {
         switch (tipoClassificacao)
         {
@@ -386,6 +394,25 @@ bool PetFera::cadastrarAnimal() {
                 break;
             case 3:
                 // Mamifero
+                cout << "Habitat: ";
+                cin >> habitat;
+
+                cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico";
+                cin >> tipoMamifero;
+    
+                cout << "cor dos pelos:";
+                cin >> corDosPelos;
+
+                cout << "Quantidade de dentes:";
+                cin >> quantidadeDeDentes;
+    
+                cout << "Quantidade de dentes? (S | N)";
+                cin >> temAsasC;
+    
+                if (temAsasC == 'S')
+                    temAsas = true;
+
+                animal = new MamiferosSilvestres(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, habitat, (Tipo)tipoMamifero, corDosPelos, quantidadeDeDentes, temAsas);
                 break;
             case 4:
                 // Reptil
@@ -414,6 +441,25 @@ bool PetFera::cadastrarAnimal() {
                 break;
             case 3:
                 // Mamifero
+                cout << "Habitat: ";
+                cin >> habitat;
+
+                cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico";
+                cin >> tipoMamifero;
+    
+                cout << "cor dos pelos:";
+                cin >> corDosPelos;
+
+                cout << "Quantidade de dentes:";
+                cin >> quantidadeDeDentes;
+    
+                cout << "Quantidade de dentes? (S | N)";
+                cin >> temAsasC;
+    
+                if (temAsasC == 'S')
+                    temAsas = true;
+
+                animal = new Mamiferos(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, habitat, (Tipo)tipoMamifero, corDosPelos, quantidadeDeDentes, temAsas);
                 break;
             case 4:
                 // Reptil
@@ -429,6 +475,7 @@ bool PetFera::cadastrarAnimal() {
 }
 
 void PetFera::RemoverAnimal(string nome) {}
+
 void PetFera::AtualizarAnimal(string nome) {}
 
 void PetFera::DadosAnimail(string nome) {
@@ -438,5 +485,7 @@ void PetFera::DadosAnimail(string nome) {
         }
     }
 }
+
 void PetFera::ListarAnimaisPorFuncionario(string nomeFuncionario) {}
+
 void PetFera::DadosDeUmaClasseAnimal(string nome) {}
