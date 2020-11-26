@@ -36,7 +36,7 @@ public:
     bool getConsegueNadar() const;
     void setConsegueNadar(bool consegueNadar);
     
-private:
+protected:
     bool temPernas;
     bool temNadadeiras;
     bool venenoso;
