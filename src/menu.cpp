@@ -54,7 +54,7 @@ int menuPetFera(PetFera* petfera) {
             case 4:
                 cout << "Digite o nome do animal para ver os dados: ";
                 cin >> nome;
-                petfera->DadosAnimail(nome);
+                petfera->DadosAnimal(nome);
                 break;
             case 5:
                 cout << "Digite a opcao de classe animal para ver os dados (1) Ave, (2) Anfibio, (3) Mamifero, (4) Reptil: ";
