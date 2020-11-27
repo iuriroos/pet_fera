@@ -31,7 +31,14 @@ int menuPetFera(PetFera* petfera) {
                     cout << endl << "Animal cadastrado com sucesso." << endl;
                 }
                 else {
-                    cout << endl << "Veterinario ou tratador nao encontrado! Tente novamente." << endl;
+                    while (petfera->veterinarios.size() < 1 || petfera->tratadores.size() < 1){
+                        cout << endl << "Cadastre pelo menos um veterinário e um tratador para poder cadastrar um animal." << endl;
+                        petfera->cadastrarFuncionario();
+                    } 
+
+                    if (petfera->veterinarios.size() >= 1 && petfera->tratadores.size() >= 1){
+                        cout << "\nAgora é possível cadastrar um animal. Para tal, escolha a opção (1) do menu." << endl;
+                    }
                 }
                 break;
             case 2:
