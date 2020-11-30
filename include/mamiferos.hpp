@@ -14,8 +14,8 @@ enum Tipo{
     Aquatico
 };
 
-class Mamiferos : public virtual Animal{
-    
+class Mamiferos : public virtual Animal
+{
 public:
     Mamiferos();
     Mamiferos(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string habitat, Tipo tipo, string corDosPelos, int quantidadeDeDentes, bool temAsas);
