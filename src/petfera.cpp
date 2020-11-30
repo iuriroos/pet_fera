@@ -8,11 +8,22 @@ PetFera::PetFera() {}
 
 PetFera::~PetFera() {}
 
+void PetFera::cabecalho(string mensagem){
+    cout << "==============================================================" << endl;
+    cout << "                    " << mensagem << "                    " << endl;
+    cout << "==============================================================" << endl; 
+
+}
+
 void PetFera::cadastrarFuncionario() {
     string nome, cpf, matricula, nascimento, crmv, cor;
     Cor nivel_de_seguranca = Cor::Nenhum;
     double salario;
-    char escolha;
+    char escolha; 
+
+    this->cabecalho("Cadastro de Funcionários!");
+
+    cout << "Informe os dados do novo funcionário:" << endl;
 
     // Coleta de dados
     cout << "Nome: ";
@@ -62,6 +73,9 @@ void PetFera::cadastrarFuncionario() {
 bool PetFera::listarTodosFuncionarios() {
     // Flag para mensagem em caso de nao existirem funcionarios
     bool existeFuncionarios = false;
+
+    this->cabecalho("Listar todos os Funcionários!");
+
     cout << "Veterinarios:" << endl;
 
     // Percorre todos os veterinarios
@@ -84,6 +98,8 @@ bool PetFera::listarTodosFuncionarios() {
 bool PetFera::removerFuncionario(string nome) {
     int index = 0;
     auto pos_vet = this->veterinarios.begin();
+
+    this->cabecalho("Remover Funcionário!");
 
     // Procura nome em veterinarios
     for (const auto& veterinario : this->veterinarios) {
@@ -114,8 +130,11 @@ bool PetFera::alterarFuncionario(string nome) {
     string nomeFuncionario, cpf, matricula, nascimento, crmv, cor;
     Cor nivel_de_seguranca = Cor::Nenhum;
     char escolha;
+    
     //double salario = 0;
     //auto pos_vet = this->veterinarios.begin();
+
+    this->cabecalho("Alterar Funcionário!");
 
     // Update de veterinarios
     for (const auto& veterinario : this->veterinarios) {
@@ -253,6 +272,9 @@ bool PetFera::alterarFuncionario(string nome) {
 }
 
 bool PetFera::listarFuncionario(string nome) {
+
+    this->cabecalho("Listar Funcionário!");
+
     // Procura nome em veterinarios
     for (auto& veterinario : this->veterinarios) {
         if (veterinario->getNome() == nome) {
@@ -288,28 +310,54 @@ bool PetFera::cadastrarAnimal() {
     char ESilvestre;
     char EameacadoDeExtincao;
 
-    cout << "Qual sera o nome do veterinario responsavel?" << endl;
-    cin >> nome;
+    this->cabecalho("Cadastro de Animais!");
 
-    // Procura nome em veterinarios
-    for (auto& veterinario : this->veterinarios) {
-        if (veterinario->getNome() == nome) {
-            veterinarioResponsavel = veterinario;
-            encontrouVet = true;
+    if (this->veterinarios.size() >= 1 && this->tratadores.size() >= 1){
+        cout << "Escolha o nome do veterinario dentre os abaixo listados:" << endl;
+
+        // Mostra o nome de todos os veterinarios cadastrados
+        for (auto& veterinario : this->veterinarios) {
+            cout << veterinario->getNome() << endl;
         }
-    }
 
-    cout << "Qual sera o nome do tratador responsavel?" << endl;
-    cin >> nome;
+        cin >> nome;
 
-    // Procura nome em tratadores
-    for (auto& tratador : this->tratadores) {
-        if (tratador->getNome() == nome) {
-            tratadorResponsavel = tratador;
-            encontrouTrat = true;
+        // Procura nome em veterinarios
+        for (auto& veterinario : this->veterinarios) {
+            if (veterinario->getNome() == nome) {
+                veterinarioResponsavel = veterinario;
+                encontrouVet = true;
+            }
         }
-    }
 
+        if (!encontrouVet){
+            cout << "Veterinário não encontrado!" << endl;
+        }
+
+        cout << "Escolha o nome do tratador dentre os abaixo listados:" << endl;
+
+        // Percorre todos os tratadores
+        for (auto& tratador : this->tratadores) {
+            cout << tratador->getNome() << endl;
+        }
+        cin >> nome;
+
+        // Procura nome em tratadores
+        for (auto& tratador : this->tratadores) {
+            if (tratador->getNome() == nome) {
+                tratadorResponsavel = tratador;
+                encontrouTrat = true;
+            }
+        }
+
+        if (!encontrouTrat){
+            cout << "Tratador não encontrado!" << endl;
+        }
+
+    }else{
+        cout << "Ainda não existem veterinários nem tratadores cadastrados!" << endl;
+    }
+    
     if (!encontrouVet || !encontrouTrat) {
         return false;
     }
@@ -618,7 +666,10 @@ void PetFera::removerAnimal(string nome) {
 
 void PetFera::atualizarAnimal(string nome) {}
 
-void PetFera::dadosAnimail(string nome) {
+void PetFera::dadosAnimal(string nome) {
+
+    this->cabecalho("Dados do animal!");
+
     for (auto& animal : this->animais) {
         if (animal->getEspecie() == nome) {
             cout << animal << endl;

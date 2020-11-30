@@ -15,6 +15,7 @@ public:
     PetFera();
     ~PetFera();
 
+    void cabecalho(string mensagem);
     void cadastrarFuncionario();
     bool listarTodosFuncionarios();
     bool removerFuncionario(string nome);
@@ -24,11 +25,10 @@ public:
     bool cadastrarAnimal();
     void removerAnimal(string nome);
     void atualizarAnimal(string nome);
-    void dadosAnimail(string nome);
+    void dadosAnimal(string nome);
     void listarAnimaisPorFuncionario(string nomeFuncionario);
     void dadosDeUmaClasseAnimal(string nome);
 
-private:
     vector<Veterinario*> veterinarios;
 	vector<Tratador*> tratadores;
 	vector<Animal*> animais;
