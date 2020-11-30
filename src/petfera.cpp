@@ -341,7 +341,7 @@ bool PetFera::cadastrarAnimal() {
 
     assert(tipoClassificacao == 1 || tipoClassificacao == 2 || tipoClassificacao == 3 || tipoClassificacao == 4);
     
-    cout << "Eh silvestre? (S | N): ";
+    cout << "É silvestre? (S | N): ";
     cin >> ESilvestre;
 
     assert(ESilvestre == 'S' || ESilvestre == 's' || ESilvestre == 'N' || ESilvestre == 'n');
@@ -397,6 +397,7 @@ bool PetFera::cadastrarAnimal() {
                 cin >> tamanhoDasPenas;
 
                 animal = new AvesSilvestres(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                
                 break;
             case 2:
                 // Anfibio
@@ -422,16 +423,16 @@ bool PetFera::cadastrarAnimal() {
                 cout << "Habitat: ";
                 cin >> habitat;
 
-                cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico";
+                cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: 4";
                 cin >> tipoMamifero;
     
-                cout << "cor dos pelos:";
+                cout << "cor dos pelos: ";
                 cin >> corDosPelos;
 
-                cout << "Quantidade de dentes:";
+                cout << "Quantidade de dentes: ";
                 cin >> quantidadeDeDentes;
     
-                cout << "Quantidade de dentes? (S | N)";
+                cout << "Tem Asas? (S | N) ";
                 cin >> temAsasC;
     
                 if (temAsasC == 'S')
@@ -591,7 +592,6 @@ bool PetFera::cadastrarAnimal() {
                     consegueNadar = true;
 
                 animal = new Repteis(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, temPernas, temNadadeiras, venenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
-                
                 break;
             default:
                 break;
@@ -603,7 +603,18 @@ bool PetFera::cadastrarAnimal() {
     return true;
 }
 
-void PetFera::RemoverAnimal(string nome) {}
+void PetFera::RemoverAnimal(string nome) {
+    size_t index = 0;
+    auto pos = this->animais.begin();
+
+    for (const auto& animal : this->animais) {
+        if (animal->getEspecie() == nome) {
+            this->animais.erase(pos + index);
+            return;
+        }
+        index++;
+    }
+}
 
 void PetFera::AtualizarAnimal(string nome) {}
 
@@ -615,6 +626,6 @@ void PetFera::DadosAnimail(string nome) {
     }
 }
 
-void PetFera::ListarAnimaisPorFuncionario(string nomeFuncionario) {}
+void PetFera::ListarAnimaisPorFuncionario(string nomeFuncionario) { }
 
 void PetFera::DadosDeUmaClasseAnimal(string nome) {}
