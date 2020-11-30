@@ -603,7 +603,7 @@ bool PetFera::cadastrarAnimal() {
     return true;
 }
 
-void PetFera::RemoverAnimal(string nome) {
+void PetFera::removerAnimal(string nome) {
     size_t index = 0;
     auto pos = this->animais.begin();
 
@@ -616,9 +616,9 @@ void PetFera::RemoverAnimal(string nome) {
     }
 }
 
-void PetFera::AtualizarAnimal(string nome) {}
+void PetFera::atualizarAnimal(string nome) {}
 
-void PetFera::DadosAnimail(string nome) {
+void PetFera::dadosAnimail(string nome) {
     for (auto& animal : this->animais) {
         if (animal->getEspecie() == nome) {
             cout << animal << endl;
@@ -626,6 +626,6 @@ void PetFera::DadosAnimail(string nome) {
     }
 }
 
-void PetFera::ListarAnimaisPorFuncionario(string nomeFuncionario) { }
+void PetFera::listarAnimaisPorFuncionario(string nomeFuncionario) { }
 
-void PetFera::DadosDeUmaClasseAnimal(string nome) {}
+void PetFera::dadosDeUmaClasseAnimal(string nome) {}

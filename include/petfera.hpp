@@ -22,11 +22,11 @@ public:
     bool listarFuncionario(string nome);
 
     bool cadastrarAnimal();
-    void RemoverAnimal(string nome);
-    void AtualizarAnimal(string nome);
-    void DadosAnimail(string nome);
-    void ListarAnimaisPorFuncionario(string nomeFuncionario);
-    void DadosDeUmaClasseAnimal(string nome);
+    void removerAnimal(string nome);
+    void atualizarAnimal(string nome);
+    void dadosAnimail(string nome);
+    void listarAnimaisPorFuncionario(string nomeFuncionario);
+    void dadosDeUmaClasseAnimal(string nome);
 
 private:
     vector<Veterinario*> veterinarios;
