@@ -10,4 +10,7 @@ public:
     AnfibioSilvestre();
     AnfibioSilvestre(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, ETipoSilvestre tipoSilvestre, string origem, bool ameacadoDeExtincao, bool eVenenoso, bool temPernas);
     ~AnfibioSilvestre();
+
+    friend ostream& operator<< (ostream& o, AnfibioSilvestre* const as);
+
 };

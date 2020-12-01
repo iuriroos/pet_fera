@@ -10,4 +10,6 @@ public:
     AveSilvestre();
     AveSilvestre(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, ETipoSilvestre tipoSilvestre, string origem, bool ameacadoDeExtincao, double tamanhoDoBico, double tamanhoDasPenas);
     ~AveSilvestre();
+
+    friend ostream& operator<< (ostream& o, AveSilvestre* const as);
 };

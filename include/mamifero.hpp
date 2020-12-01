@@ -36,7 +36,7 @@ public:
     bool getTemAsas() const;
     void setTemAsas(bool temAsas);
 
-    friend ostream& operator<< (ostream& o, Animal* const a);
+    friend ostream& operator<< (ostream& o, Mamifero* const m);
 
 private:
     string habitat;

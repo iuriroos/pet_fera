@@ -796,7 +796,6 @@ void PetFera::atualizarAnimal(string nome) {
 
             string tipoClass = typeid(*animal).name();
     
-            
             int quantidadeDeNumeros = 0;
 
             while (isdigit(tipoClass[quantidadeDeNumeros]))
@@ -808,7 +807,28 @@ void PetFera::atualizarAnimal(string nome) {
             cout << tipoClass << endl;
 
             if (tipoClass == "Ave") {
-                
+                Ave* ave =  dynamic_cast<Ave*> (animal);
+            } 
+            else if (tipoClass == "Anfibio") {
+                Anfibio* anfibio =  dynamic_cast<Anfibio*> (animal);
+            }
+            else if (tipoClass == "Mamifero") {
+                Mamifero* mamifero =  dynamic_cast<Mamifero*> (animal);
+            }
+            else if (tipoClass == "Reptel") {
+                Reptel* reptel =  dynamic_cast<Reptel*> (animal);
+            } 
+            else if (tipoClass == "AveSilvestre") {
+                AveSilvestre* aveSilvestre =  dynamic_cast<AveSilvestre*> (animal);
+            } 
+            else if (tipoClass == "AnfibioSilvestre") {
+                Silvestre* anfibioSilvestre =  dynamic_cast<AnfibioSilvestre*> (animal);
+            }
+            else if (tipoClass == "MamiferoSilvestre") {
+                MamiferoSilvestre* mamiferoSilvestre =  dynamic_cast<MamiferoSilvestre*> (animal);
+            }
+            else if (tipoClass == "ReptelSilvestre") {
+                ReptelSilvestre* reptelSilvestre =  dynamic_cast<ReptelSilvestre*> (animal);
             }
         }
     }else{
@@ -823,6 +843,49 @@ void PetFera::dadosAnimal(string nome) {
     for (auto& animal : this->animais) {
         if (animal->getEspecie() == nome) {
             cout << animal << endl;
+
+            string tipoClass = typeid(*animal).name();
+    
+            int quantidadeDeNumeros = 0;
+
+            while (isdigit(tipoClass[quantidadeDeNumeros])) {
+                quantidadeDeNumeros++;
+            }
+
+            tipoClass.erase(0, quantidadeDeNumeros);
+
+            if (tipoClass == "Ave") {
+                Ave* ave =  dynamic_cast<Ave*> (animal);
+                cout << ave << endl;
+            } 
+            else if (tipoClass == "Anfibio") {
+                Anfibio* anfibio =  dynamic_cast<Anfibio*> (animal);
+                cout << anfibio << endl;
+            }
+            else if (tipoClass == "Mamifero") {
+                Mamifero* mamifero =  dynamic_cast<Mamifero*> (animal);
+                cout << mamifero << endl;
+            }
+            else if (tipoClass == "Reptel") {
+                Reptel* reptel =  dynamic_cast<Reptel*> (animal);
+                cout << reptel << endl;
+            } 
+            else if (tipoClass == "AveSilvestre") {
+                AveSilvestre* aveSilvestre =  dynamic_cast<AveSilvestre*> (animal);
+                cout << aveSilvestre << endl;
+            } 
+            else if (tipoClass == "AnfibioSilvestre") {
+                AnfibioSilvestre* anfibioSilvestre =  dynamic_cast<AnfibioSilvestre*> (animal);
+                cout << anfibioSilvestre << endl;
+            }
+            else if (tipoClass == "MamiferoSilvestre") {
+                MamiferoSilvestre* mamiferoSilvestre =  dynamic_cast<MamiferoSilvestre*> (animal);
+                cout << mamiferoSilvestre << endl;
+            }
+            else if (tipoClass == "ReptelSilvestre") {
+                ReptelSilvestre* reptelSilvestre =  dynamic_cast<ReptelSilvestre*> (animal);
+                cout << reptelSilvestre << endl;
+            }
         }
     }
 }

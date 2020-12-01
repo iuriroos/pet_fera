@@ -23,3 +23,20 @@ bool Anfibio::getTemPernas() const{
 void Anfibio::setTemPernas(bool temPernas){
     this->temPernas = temPernas;
 }
+
+ostream& operator<< (ostream& o, Anfibio* const a) {
+    string venenoso = "não", temPernas = "não";
+    
+    if (a->getEVenenoso()) venenoso = "sim";
+    if (a->getTemPernas()) temPernas = "sim";
+
+	o <<
+		"Especies: " << a->getEspecie() << endl <<
+		"Cor: " << a->getCor() << endl <<
+		"Preço: " << a->getPreco() << endl <<
+		"Tipo de Alimentação: " << a->getTipoDeAlimentacao() <<
+        "É venenoso: " << venenoso <<
+        "Tem penas: " << temPernas;
+
+	return o;
+}

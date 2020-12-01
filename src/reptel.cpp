@@ -61,3 +61,30 @@ bool Reptel::getConsegueNadar() const{
 void Reptel::setConsegueNadar(bool consegueNadar){
     this->consegueNadar = consegueNadar;
 }
+
+ostream& operator<< (ostream& o, Reptel* const r) {
+    string temPerna = "não", temNadadeira = "não", venenoso = "não", peconhento = "não", poeOvos = "não", temCarapacas = "não", consegueNadar = "não"; 
+
+    if(r->getTemPernas()) temPerna = "sim";
+    if(r->getTemNadadeiras()) temNadadeira = "sim";
+    if(r->getVenenoso()) venenoso = "sim";
+    if(r->getPeconhento()) peconhento = "sim";
+    if(r->getPoeOvos()) poeOvos = "sim";
+    if(r->getTemCarapaca()) temCarapacas = "sim";
+    if(r->getConsegueNadar()) consegueNadar = "sim";
+
+	o <<
+		"Especies: " << r->getEspecie() << endl <<
+		"Cor: " << r->getCor() << endl <<
+		"Preço: " << r->getPreco() << endl <<
+		"Tipo de Alimentação: " << r->getTipoDeAlimentacao() << endl <<
+        "Tem pernas: " <<  temPerna << endl <<
+        "Tem nadadeiras: " << temNadadeira << endl <<
+        "É venenoso: " << venenoso << endl <<
+        "É peçonhento: " << peconhento << endl <<
+        "Poe ovos: " << poeOvos << endl <<
+        "tem Carapaças: " << temCarapacas << endl <<
+        "consegue Nadar: " << consegueNadar;
+
+	return o;
+}

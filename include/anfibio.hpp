@@ -17,7 +17,7 @@ public:
     bool getTemPernas() const;
     void setTemPernas(bool temPernas);
 
-    friend ostream& operator<< (ostream& o, Animal* const a);
+    friend ostream& operator<< (ostream& o, Anfibio* const a);
 
 private:
     bool eVenenoso;

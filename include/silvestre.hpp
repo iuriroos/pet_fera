@@ -24,7 +24,7 @@ public:
     bool getAmeacadoDeExtincao() const;
     void setAmeacadoDeExtincao(bool ameacadoDeExtincao);
 
-    friend ostream& operator<< (ostream& o, Animal* const a);
+    friend ostream& operator<< (ostream& o, Silvestre* const a);
 
 protected:
     ETipoSilvestre tipoSilvestre;
