@@ -26,10 +26,7 @@ public:
 
     Tipo getTipo() const;
     void setTipo(Tipo tipo);
-
-    string getCorDosPelos() const;
-    void setCorDosPelos(string corDosPelos);
-
+    
     int getQuantidadeDeDentes() const;
     void setQuantidadeDeDentes(int quantidadeDeDentes);
 

@@ -659,6 +659,10 @@ void PetFera::atualizarAnimal(string nome) {
     char EameacadoDeExtincao;
     char eVenenoso;
     char temPernas;
+    string habitat;
+    int tipoMamifero;
+    int quantidadeDeDentes;
+    char temAsas;
  
     if (this->animais.size() >= 1){
         for (auto& animal : this->animais) {
@@ -869,6 +873,70 @@ void PetFera::atualizarAnimal(string nome) {
             }
             else if (tipoClass == "Mamifero") {
                 Mamifero* mamifero =  dynamic_cast<Mamifero*> (animal);
+
+                // Alterar habitat
+                cout << "Alterar habitat? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo habitat:";
+                    cin >> habitat;
+                    mamifero->setHabitat(habitat);
+                }
+
+                // Alterar habitat
+                cout << "Alterar habitat? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo habitat:";
+                    cin >> habitat;
+                    mamifero->setHabitat(habitat);
+                }
+
+                // Alterar tipo
+                cout << "Alterar tipo de mamifero? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+
+                    cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: ";
+                    cin >> tipoMamifero;
+
+                    mamifero->setTipo((Tipo) tipoMamifero);
+                }
+
+                // Alterar tipo
+                cout << "Alterar quantidade de dentes? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Nova quantidade de dentes: ";
+                    cin >> quantidadeDeDentes;
+
+                    mamifero->setQuantidadeDeDentes(quantidadeDeDentes);
+                }
+
+                // Alterar tem asas
+                cout << "Alterar tem asas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tem asas: (S | N)";
+                    cin >> temAsas;
+
+                    mamifero->setTemAsas(temAsas == 'S');
+                }
             }
             else if (tipoClass == "Reptel") {
                 Reptel* reptel =  dynamic_cast<Reptel*> (animal);
@@ -1001,6 +1069,106 @@ void PetFera::atualizarAnimal(string nome) {
             }
             else if (tipoClass == "MamiferoSilvestre") {
                 MamiferoSilvestre* mamiferoSilvestre =  dynamic_cast<MamiferoSilvestre*> (animal);
+
+                // Alterar habitat
+                cout << "Alterar habitat? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo habitat:";
+                    cin >> habitat;
+                    mamiferoSilvestre->setHabitat(habitat);
+                }
+
+                // Alterar habitat
+                cout << "Alterar habitat? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo habitat:";
+                    cin >> habitat;
+                    mamiferoSilvestre->setHabitat(habitat);
+                }
+
+                // Alterar tipo
+                cout << "Alterar tipo de mamifero? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+
+                    cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: ";
+                    cin >> tipoMamifero;
+
+                    mamiferoSilvestre->setTipo((Tipo) tipoMamifero);
+                }
+
+                // Alterar tipo
+                cout << "Alterar quantidade de dentes? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Nova quantidade de dentes: ";
+                    cin >> quantidadeDeDentes;
+
+                    mamiferoSilvestre->setQuantidadeDeDentes(quantidadeDeDentes);
+                }
+
+                // Alterar tem asas
+                cout << "Alterar tem asas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tem asas: (S | N)";
+                    cin >> temAsas;
+
+                    mamiferoSilvestre->setTemAsas(temAsas == 'S');
+                }
+
+                // Alterar Tipo Silvestre
+                cout << "Alterar origem? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tipo silvetres: ";
+                    cin >> origem;
+                    
+                    if (origem == "Brasil" || origem == "brasil") {
+                        tipoSilvestre = ETipoSilvestre::Nativo;
+                    }
+                    else {
+                        tipoSilvestre = ETipoSilvestre::Exotico;
+                    }
+
+                    mamiferoSilvestre->setOrigem(origem);
+                    mamiferoSilvestre->setTipoSilvestre(tipoSilvestre);
+                }
+                
+                // Alterar tamanho das asas
+                cout << "Alterar tamanho das asas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo ameacado de Extincao: (S | N)";
+                    cin >> EameacadoDeExtincao;
+                    
+                    assert(EameacadoDeExtincao == 'S' || EameacadoDeExtincao == 's' || EameacadoDeExtincao == 'N' || EameacadoDeExtincao == 'n');
+                    
+                    mamiferoSilvestre->setAmeacadoDeExtincao(EameacadoDeExtincao == 'S');
+                }
             }
             else if (tipoClass == "ReptelSilvestre") {
                 ReptelSilvestre* reptelSilvestre =  dynamic_cast<ReptelSilvestre*> (animal);
