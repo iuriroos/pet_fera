@@ -121,7 +121,7 @@ bool PetFera::removerFuncionario(string nome) {
     return false;
 }
 
-bool PetFera::alterarFuncionario(string nome) {
+bool PetFera::alterarFuncionario(string nome) { 
     int index = 0;
     string nomeFuncionario, cpf, matricula, nascimento, crmv, cor;
     Cor nivel_de_seguranca = Cor::Nenhum;
@@ -641,7 +641,101 @@ void PetFera::removerAnimal(string nome) {
     }
 }
 
-void PetFera::atualizarAnimal(string nome) {}
+void PetFera::atualizarAnimal(string nome) {
+    char escolha;
+    string especie;
+    Sexo sexo;
+    char sexoC;
+    int tamanho;
+    string cor;
+    double preco;
+    string tipoDeAlimentacao;
+
+    for (auto& animal : this->animais) {
+        if (animal->getEspecie() == nome) {;
+            // Alterar espécie
+            cout << "Alterar espécie? (S | N) ";
+            cin >> escolha;
+
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Nova espécie: ";
+                cin >> especie;
+                animal->setEspecie(especie);
+            }
+
+            // Alterar sexo
+            cout << "Alterar sexo? (S | N) ";
+            cin >> escolha;
+
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo sexo (F | M): ";
+                cin >> sexoC;
+
+                assert(sexoC == 'F' || sexoC == 'f' || sexoC == 'M' || sexoC == 'm');
+
+                if (sexoC == 'F' || sexoC == 'f') {
+                    sexo = Sexo::Femea;
+                } else{
+                    sexo = Sexo::Macho;
+                }
+
+                animal->setSexo(sexo);
+            }
+
+            // Alterar tamanho
+            cout << "Alterar tamanho? (S | N) ";
+            cin >> escolha;
+
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo tamanho: ";
+                cin >> tamanho;
+                animal->setTamanho(tamanho);
+            }
+
+            // Alterar cor
+            cout << "Alterar cor? (S | N) ";
+            cin >> escolha;
+
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Nova cor: ";
+                cin >> cor;
+                animal->setCor(cor);
+            }
+
+            // Alterar preco
+            cout << "Alterar preço? (S | N) ";
+            cin >> escolha;
+
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo preço: ";
+                cin >> preco;
+                animal->setPreco(preco);
+            }
+
+            // Alterar tipo de alimentação
+            cout << "Alterar tipo de alimentação? (S | N) ";
+            cin >> escolha;
+
+            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+            if (escolha == 'S' || escolha == 's') {
+                cout << "Novo tipo de alimentação: ";
+                cin >> tipoDeAlimentacao;
+                animal->setTipoDeAlimentacao(tipoDeAlimentacao);
+            }
+        }
+    }
+}
 
 void PetFera::dadosAnimal(string nome) {
 
