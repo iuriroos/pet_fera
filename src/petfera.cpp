@@ -668,6 +668,10 @@ void PetFera::atualizarAnimal(string nome) {
                     animal->setEspecie(especie);
                 }
 
+                // Alterar sexo
+                cout << "Alterar sexo? (S | N) ";
+                cin >> escolha;
+
                 assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
 
                 if (escolha == 'S' || escolha == 's') {
