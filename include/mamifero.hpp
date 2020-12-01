@@ -38,7 +38,7 @@ public:
 
     friend ostream& operator<< (ostream& o, Mamifero* const m);
 
-private:
+protected:
     string habitat;
     Tipo tipo;
     int quantidadeDeDentes;
