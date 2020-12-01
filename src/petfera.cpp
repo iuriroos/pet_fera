@@ -652,7 +652,7 @@ void PetFera::atualizarAnimal(string nome) {
     string tipoDeAlimentacao;
 
     for (auto& animal : this->animais) {
-        if (animal->getEspecie() == nome) {;
+        if (animal->getEspecie() == nome) {
             // Alterar espécie
             cout << "Alterar espécie? (S | N) ";
             cin >> escolha;
@@ -733,6 +733,23 @@ void PetFera::atualizarAnimal(string nome) {
                 cin >> tipoDeAlimentacao;
                 animal->setTipoDeAlimentacao(tipoDeAlimentacao);
             }
+
+            string tipoClass = typeid(*animal).name();
+    
+            
+            int quantidadeDeNumeros = 0;
+
+            while (isdigit(tipoClass[quantidadeDeNumeros]))
+            {
+                quantidadeDeNumeros++;
+            }
+
+            tipoClass.erase(0, quantidadeDeNumeros);
+            cout << tipoClass << endl;
+
+            if (tipoClass == "Ave") {
+                
+            }
         }
     }
 }
@@ -744,7 +761,6 @@ void PetFera::dadosAnimal(string nome) {
     for (auto& animal : this->animais) {
         if (animal->getEspecie() == nome) {
             cout << animal << endl;
-            cout << typeid(*animal).name() << endl;
         }
     }
 }
