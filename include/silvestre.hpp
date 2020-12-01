@@ -4,7 +4,7 @@
 
 using namespace std;
 
-enum ETipoSilvestre {
+enum class ETipoSilvestre {
     Nativo,
     Exotico
 };

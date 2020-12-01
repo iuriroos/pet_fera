@@ -7,7 +7,7 @@
 
 using namespace std;
 
-enum Sexo {
+enum class Sexo {
     Femea,
     Macho
 };
