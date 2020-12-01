@@ -74,8 +74,6 @@ bool PetFera::listarTodosFuncionarios() {
     // Flag para mensagem em caso de nao existirem funcionarios
     bool existeFuncionarios = false;
 
-    this->cabecalho("Listar todos os Funcionários!");
-
     cout << "Veterinarios:" << endl;
 
     // Percorre todos os veterinarios
@@ -98,8 +96,6 @@ bool PetFera::listarTodosFuncionarios() {
 bool PetFera::removerFuncionario(string nome) {
     int index = 0;
     auto pos_vet = this->veterinarios.begin();
-
-    this->cabecalho("Remover Funcionário!");
 
     // Procura nome em veterinarios
     for (const auto& veterinario : this->veterinarios) {
@@ -133,8 +129,6 @@ bool PetFera::alterarFuncionario(string nome) {
     
     //double salario = 0;
     //auto pos_vet = this->veterinarios.begin();
-
-    this->cabecalho("Alterar Funcionário!");
 
     // Update de veterinarios
     for (const auto& veterinario : this->veterinarios) {
@@ -272,8 +266,6 @@ bool PetFera::alterarFuncionario(string nome) {
 }
 
 bool PetFera::listarFuncionario(string nome) {
-
-    this->cabecalho("Listar Funcionário!");
 
     // Procura nome em veterinarios
     for (auto& veterinario : this->veterinarios) {
@@ -664,7 +656,6 @@ void PetFera::dadosAnimal(string nome) {
 }
 
 void PetFera::listarAnimaisPorFuncionario(string nomeFuncionario) {
-    this->cabecalho("Listar animais por Funcionário!");
 
     for (auto& animal : this->animais) {
         if (animal->getVeterinario()->getNome() == nomeFuncionario || animal->getTratador()->getNome() == nomeFuncionario) {

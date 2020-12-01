@@ -42,37 +42,44 @@ int menuPetFera(PetFera* petfera) {
                 }
                 break;
             case 2:
+                petfera->cabecalho("Comprar animal!");
                 cout << "Digite o nome do animal a ser comprado: ";
                 cin >> nome;
                 petfera->removerAnimal(nome);
                 break;
             case 3:
+                petfera->cabecalho("Atualizar animal!");
                 cout << "Digite o nome do animal a ser alterado: ";
                 cin >> nome;
 
                 petfera->atualizarAnimal(nome);
                 break;
             case 4:
+                petfera->cabecalho("Listar dados de um animal!");
                 cout << "Digite o nome do animal para ver os dados: ";
                 cin >> nome;
                 
                 petfera->dadosAnimal(nome);
                 break;
             case 5:
+                petfera->cabecalho("Listar dados de uma classe de animais!");
                 cout << "Digite a opcao de classe animal para ver os dados (1) Ave, (2) Anfibio, (3) Mamifero, (4) Reptil: ";
                 cin >> nome;
                 
                 petfera->dadosDeUmaClasseAnimal(nome);
                 break;
             case 6:
+                petfera->cabecalho("Listar animais por funcionário!");
                 cout << "Digite o nome do funcionario para ver os animais: ";
                 cin >> nome;
+
                 petfera->listarAnimaisPorFuncionario(nome);
                 break;
             case 7:
                 petfera->cadastrarFuncionario();
                 break;
             case 8:
+                petfera->cabecalho("Alerar dados de um funcionário!");
                 cout << "Digite o nome do funcionario a ser alterado: ";
                 cin >> nome;
 
@@ -84,6 +91,7 @@ int menuPetFera(PetFera* petfera) {
                 }
                 break;
             case 9:
+                petfera->cabecalho("Remover funcionário!");
                 cout << "Digite o nome do funcionario a ser removido: ";
                 cin >> nome;
 
@@ -95,6 +103,7 @@ int menuPetFera(PetFera* petfera) {
                 }
                 break;
             case 10:
+                petfera->cabecalho("Listar dados de um funcionário!");
                 cout << "Digite o nome do funcionario a ser listado: ";
                 cin >> nome;
 
@@ -103,11 +112,13 @@ int menuPetFera(PetFera* petfera) {
                 }
                 break;
             case 11:
+                petfera->cabecalho("Listar todos os funcionários!");
                 if (!petfera->listarTodosFuncionarios()) {
                     cout << endl << "Nao existe nenhum funcionario cadastrado!" << endl;
                 }
                 break;
             case 12:
+                petfera->cabecalho("Obrigado pela preferência e volte sempre!");
                 return 0;
                 break;
             default:
