@@ -14,18 +14,12 @@ enum Tipo{
     Aquatico
 };
 
-class Mamiferos : public virtual Animal
+class Mamifero : public virtual Animal
 {
 public:
-    Mamiferos();
-    Mamiferos(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string habitat, Tipo tipo, string corDosPelos, int quantidadeDeDentes, bool temAsas);
-    ~Mamiferos();
-
-    void voar();
-    void cavar();
-    void correr();
-    void nadar();
-    void saltar();
+    Mamifero();
+    Mamifero(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, string habitat, Tipo tipo, int quantidadeDeDentes, bool temAsas);
+    ~Mamifero();
 
     string getHabitat() const;
     void setHabitat(string habitat);
@@ -45,7 +39,6 @@ public:
 private:
     string habitat;
     Tipo tipo;
-    string corDosPelos;
     int quantidadeDeDentes;
     bool temAsas;
 };

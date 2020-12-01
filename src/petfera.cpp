@@ -1,8 +1,8 @@
 #include "petfera.hpp"
-#include "avessilvestres.hpp"
-#include "anfibiossilvestres.hpp"
-#include "mamiferossilvestres.hpp"
-#include "repteissilvestres.hpp"
+#include "avesilvestre.hpp"
+#include "anfibiosilvestre.hpp"
+#include "mamiferosilvestre.hpp"
+#include "reptelsilvestre.hpp"
 
 PetFera::PetFera() {}
 
@@ -418,14 +418,12 @@ bool PetFera::cadastrarAnimal() {
 
     string habitat;
     int tipoMamifero;
-    string corDosPelos; 
     int quantidadeDeDentes; 
     char temAsasC;
     bool temAsas;
 
-    string corDaPele;
     char venenosoC, temPernasC;
-    bool venenoso, temPernas;
+    bool eVenenoso, temPernas;
 
     bool temNadadeiras, peconhento, poeOvos, temCarapaca, consegueNadar;
     char temNadadeirasC, peconhentoC, poeOvosC, temCarapacaC, consegueNadarC;
@@ -435,28 +433,22 @@ bool PetFera::cadastrarAnimal() {
         {
             case 1:
                 // Ave
-                cout << "Cor das penas: ";
-                cin >> corDasPenas;
-
                 cout << "Tamanho do bico em cm: ";
                 cin >> tamanhoDoBico;
                 
                 cout << "Tamanho das penas em cm: ";
                 cin >> tamanhoDasPenas;
 
-                animal = new AvesSilvestres(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                animal = new AveSilvestre(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, tamanhoDoBico, tamanhoDasPenas);
 
                 break;
             case 2:
                 // Anfibio
-                cout << "cor da pele: ";
-                cin >> corDaPele;
-
                 cout << "É venenoso? (S | N): ";
                 cin >> venenosoC;
 
                 if (venenosoC == 'S')
-                    venenoso = true;
+                    eVenenoso = true;
                     
                 cout << "Tem Pernas? (S | N): ";
                 cin >> temPernasC;
@@ -464,7 +456,7 @@ bool PetFera::cadastrarAnimal() {
                 if (temPernasC == 'S')
                     temPernas = true;
 
-                animal = new AnfibiosSilvestres(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, corDaPele, venenoso, temPernas);
+                animal = new AnfibioSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, eVenenoso, temPernas);
                 break;
             case 3:
                 // Mamifero
@@ -473,9 +465,6 @@ bool PetFera::cadastrarAnimal() {
 
                 cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: 4";
                 cin >> tipoMamifero;
-    
-                cout << "cor dos pelos: ";
-                cin >> corDosPelos;
 
                 cout << "Quantidade de dentes: ";
                 cin >> quantidadeDeDentes;
@@ -486,7 +475,7 @@ bool PetFera::cadastrarAnimal() {
                 if (temAsasC == 'S')
                     temAsas = true;
 
-                animal = new MamiferosSilvestres(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, habitat, (Tipo)tipoMamifero, corDosPelos, quantidadeDeDentes, temAsas);
+                animal = new MamiferoSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, habitat, (Tipo)tipoMamifero, quantidadeDeDentes, temAsas);
                 break;
             case 4:
                 // Reptil
@@ -506,7 +495,7 @@ bool PetFera::cadastrarAnimal() {
                 cin >> venenosoC;
     
                 if (venenosoC == 'S')
-                    venenoso = true;
+                    eVenenoso = true;
 
                 cout << "É peçonhento? (S | N)";
                 cin >> peconhentoC;
@@ -532,7 +521,7 @@ bool PetFera::cadastrarAnimal() {
                 if (consegueNadarC == 'S')
                     consegueNadar = true;
 
-                animal = new RepteisSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, temPernas, temNadadeiras, venenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
+                animal = new ReptelSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, temPernas, temNadadeiras, eVenenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
                 break;
             default:
                 break;
@@ -551,18 +540,15 @@ bool PetFera::cadastrarAnimal() {
                 cout << "Tamanho das penas em cm: ";
                 cin >> tamanhoDasPenas;
 
-                animal = new Aves(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, corDasPenas, tamanhoDoBico, tamanhoDasPenas);
+                animal = new Ave(especie, sexo, tamanho,  cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tamanhoDoBico, tamanhoDasPenas);
                 break;
             case 2:
                 // Anfibio
-                cout << "cor da pele: ";
-                cin >> corDaPele;
-
                 cout << "É venenoso? (S | N): ";
                 cin >> venenosoC;
 
                 if (venenosoC == 'S')
-                    venenoso = true;
+                    eVenenoso = true;
                     
                 cout << "Tem Pernas? (S | N): ";
                 cin >> temPernasC;
@@ -570,7 +556,7 @@ bool PetFera::cadastrarAnimal() {
                 if (temPernasC == 'S')
                     temPernas = true;
 
-                animal = new Anfibios(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, corDaPele, venenoso, temPernas);
+                animal = new Anfibio(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, eVenenoso, temPernas);
                 break;
             case 3:
                 // Mamifero
@@ -579,9 +565,7 @@ bool PetFera::cadastrarAnimal() {
 
                 cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: ";
                 cin >> tipoMamifero;
-    
-                cout << "cor dos pelos:";
-                cin >> corDosPelos;
+
 
                 cout << "Quantidade de dentes: ";
                 cin >> quantidadeDeDentes;
@@ -592,7 +576,7 @@ bool PetFera::cadastrarAnimal() {
                 if (temAsasC == 'S')
                     temAsas = true;
 
-                animal = new Mamiferos(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, habitat, (Tipo)tipoMamifero, corDosPelos, quantidadeDeDentes, temAsas);
+                animal = new Mamifero(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, habitat, (Tipo)tipoMamifero, quantidadeDeDentes, temAsas);
                 break;
             case 4:
                 // Reptil
@@ -612,7 +596,7 @@ bool PetFera::cadastrarAnimal() {
                 cin >> venenosoC;
     
                 if (venenosoC == 'S')
-                    venenoso = true;
+                    eVenenoso = true;
 
                 cout << "É peçonhento? (S | N): ";
                 cin >> peconhentoC;
@@ -638,7 +622,7 @@ bool PetFera::cadastrarAnimal() {
                 if (consegueNadarC == 'S')
                     consegueNadar = true;
 
-                animal = new Repteis(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, temPernas, temNadadeiras, venenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
+                animal = new Reptel(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, temPernas, temNadadeiras, eVenenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
                 break;
             default:
                 break;

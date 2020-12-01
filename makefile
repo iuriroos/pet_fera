@@ -9,7 +9,7 @@ PROG1 = $(BIN)/petfera
 
 CPPFLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
-OBJS1 = $(OBJ)/animal.o $(OBJ)/silvestre.o $(OBJ)/domestico.o $(OBJ)/funcionario.o $(OBJ)/anfibios.o $(OBJ)/aves.o $(OBJ)/mamiferos.o $(OBJ)/repteis.o $(OBJ)/repteissilvestres.o $(OBJ)/mamiferossilvestres.o $(OBJ)/avessilvestres.o $(OBJ)/anfibiossilvestres.o $(OBJ)/veterinario.o $(OBJ)/tratador.o $(OBJ)/petfera.o $(OBJ)/menu.o $(OBJ)/main.o
+OBJS1 = $(OBJ)/animal.o $(OBJ)/silvestre.o $(OBJ)/funcionario.o $(OBJ)/anfibio.o $(OBJ)/ave.o $(OBJ)/mamifero.o $(OBJ)/reptel.o $(OBJ)/reptelsilvestre.o $(OBJ)/mamiferosilvestre.o $(OBJ)/avesilvestre.o $(OBJ)/anfibiosilvestre.o $(OBJ)/veterinario.o $(OBJ)/tratador.o $(OBJ)/petfera.o $(OBJ)/menu.o $(OBJ)/main.o
 
 all: mkdirs $(PROG1)
 
@@ -23,35 +23,32 @@ $(PROG1): $(OBJS1)
 $(OBJ)/animal.o: $(SRC)/animal.cpp $(INC)/animal.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/animal.cpp -o $(OBJ)/animal.o
 
-$(OBJ)/anfibios.o: $(SRC)/anfibios.cpp $(INC)/anfibios.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/anfibios.cpp -o $(OBJ)/anfibios.o
+$(OBJ)/anfibio.o: $(SRC)/anfibio.cpp $(INC)/anfibio.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/anfibio.cpp -o $(OBJ)/anfibio.o
 
-$(OBJ)/aves.o: $(SRC)/aves.cpp $(INC)/aves.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/aves.cpp -o $(OBJ)/aves.o
+$(OBJ)/ave.o: $(SRC)/ave.cpp $(INC)/ave.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/ave.cpp -o $(OBJ)/ave.o
 
-$(OBJ)/mamiferos.o: $(SRC)/mamiferos.cpp $(INC)/mamiferos.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/mamiferos.cpp -o $(OBJ)/mamiferos.o
+$(OBJ)/mamifero.o: $(SRC)/mamifero.cpp $(INC)/mamifero.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/mamifero.cpp -o $(OBJ)/mamifero.o
 
-$(OBJ)/repteis.o: $(SRC)/repteis.cpp $(INC)/repteis.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/repteis.cpp -o $(OBJ)/repteis.o
+$(OBJ)/reptel.o: $(SRC)/reptel.cpp $(INC)/reptel.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/reptel.cpp -o $(OBJ)/reptel.o
 
 $(OBJ)/silvestre.o: $(SRC)/silvestre.cpp $(INC)/silvestre.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/silvestre.cpp -o $(OBJ)/silvestre.o
 
-$(OBJ)/repteissilvestres.o: $(SRC)/repteissilvestres.cpp $(INC)/repteissilvestres.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/repteissilvestres.cpp -o $(OBJ)/repteissilvestres.o
+$(OBJ)/reptelsilvestre.o: $(SRC)/reptelsilvestre.cpp $(INC)/reptelsilvestre.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/reptelsilvestre.cpp -o $(OBJ)/reptelsilvestre.o
 
-$(OBJ)/mamiferossilvestres.o: $(SRC)/mamiferossilvestres.cpp $(INC)/mamiferossilvestres.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/mamiferossilvestres.cpp -o $(OBJ)/mamiferossilvestres.o
+$(OBJ)/mamiferosilvestre.o: $(SRC)/mamiferosilvestre.cpp $(INC)/mamiferosilvestre.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/mamiferosilvestre.cpp -o $(OBJ)/mamiferosilvestre.o
 
-$(OBJ)/avessilvestres.o: $(SRC)/avessilvestres.cpp $(INC)/avessilvestres.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/avessilvestres.cpp -o $(OBJ)/avessilvestres.o
+$(OBJ)/avesilvestre.o: $(SRC)/avesilvestre.cpp $(INC)/avesilvestre.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/avesilvestre.cpp -o $(OBJ)/avesilvestre.o
 
-$(OBJ)/anfibiossilvestres.o: $(SRC)/anfibiossilvestres.cpp $(INC)/anfibiossilvestres.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/anfibiossilvestres.cpp -o $(OBJ)/anfibiossilvestres.o
-
-$(OBJ)/domestico.o: $(SRC)/domestico.cpp $(INC)/domestico.hpp
-	$(CC) $(CPPFLAGS) -c $(SRC)/domestico.cpp -o $(OBJ)/domestico.o
+$(OBJ)/anfibiosilvestre.o: $(SRC)/anfibiosilvestre.cpp $(INC)/anfibiosilvestre.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/anfibiosilvestre.cpp -o $(OBJ)/anfibiosilvestre.o
 
 $(OBJ)/funcionario.o: $(SRC)/funcionario.cpp $(INC)/funcionario.hpp
 	$(CC) $(CPPFLAGS) -c $(SRC)/funcionario.cpp -o $(OBJ)/funcionario.o

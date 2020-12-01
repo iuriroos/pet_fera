@@ -4,16 +4,12 @@
 
 using namespace std;
 
-class Repteis : public virtual Animal{
+class Reptel : public virtual Animal{
     
 public:
-    Repteis();
-    Repteis(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar);
-    ~Repteis();
-
-    void nadar();
-    void andar();
-    void escalar();
+    Reptel();
+    Reptel(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar);
+    ~Reptel();
 
     bool getTemPernas() const;
     void setTemPernas(bool temPernas);
