@@ -10,4 +10,7 @@ public:
     ReptelSilvestre();
     ReptelSilvestre(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, ETipoSilvestre tipoSilvestre, string origem, bool ameacadoDeExtincao, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar);
     ~ReptelSilvestre();
+
+    friend ostream& operator<< (ostream& o, ReptelSilvestre* const rs);
+    
 };

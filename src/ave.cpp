@@ -29,8 +29,8 @@ ostream& operator<< (ostream& o, Ave* const a) {
 		"Especies: " << a->getEspecie() << endl <<
 		"Cor: " << a->getCor() << endl <<
 		"Preço: " << a->getPreco() << endl <<
-		"Tipo de Alimentação: " << a->getTipoDeAlimentacao() <<
-        "tamanho do bico: " << a->getTamanhoDoBico() <<
+		"Tipo de Alimentação: " << a->getTipoDeAlimentacao() << endl <<
+        "tamanho do bico: " << a->getTamanhoDoBico() << endl <<
         "Tamanho das pernas: " << a->getTamanhoDasPenas();
 
 	return o;

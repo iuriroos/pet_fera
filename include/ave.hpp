@@ -16,7 +16,7 @@ public:
     double getTamanhoDasPenas() const;
     void setTamanhoDasPenas(double tamanhoDasPenas);
 
-    friend ostream& operator<< (ostream& o, Animal* const a);
+    friend ostream& operator<< (ostream& o, Ave* const a);
     
 protected:
     double tamanhoDoBico;

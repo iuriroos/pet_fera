@@ -9,3 +9,27 @@ MamiferoSilvestre::MamiferoSilvestre(string especie, Sexo sexo, int tamanho, str
         Silvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinario, tratador, tipoSilvestre, origem, ameacadoDeExtincao) {}
 
 MamiferoSilvestre::~MamiferoSilvestre() {}
+
+
+ostream& operator<< (ostream& o, MamiferoSilvestre* const ms) {
+	string TipoMamifero = "Cursorial", temAsas = "não", nativoOrExotico = "Exotico", ameacado = "não";
+
+    if (ms->getTemAsas()) temAsas = "sim";
+    if(ms->getTipoSilvestre() == ETipoSilvestre::Nativo) nativoOrExotico = "Nativo";
+    if(ms->getAmeacadoDeExtincao()) ameacado = "sim";
+
+    o <<
+		"Especies: " << ms->getEspecie() << endl <<
+		"Cor: " << ms->getCor() << endl <<
+		"Preço: " << ms->getPreco() << endl <<
+		"Tipo de Alimentação: " << ms->getTipoDeAlimentacao() <<
+        "Habitat: " << ms->getHabitat() << endl <<
+        "Tipo: " << TipoMamifero << endl <<
+        "Quantidade de Dentes: " << ms->getQuantidadeDeDentes() << endl <<
+        "Tem Asas: " << temAsas << endl <<
+        "Tipo silvestres: " << nativoOrExotico << endl <<
+        "Origem: " << ms->getOrigem() << endl <<
+        "Ameaçado de extinção: " << ameacado;
+
+	return o;
+}

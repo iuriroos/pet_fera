@@ -32,7 +32,7 @@ public:
     bool getConsegueNadar() const;
     void setConsegueNadar(bool consegueNadar);
 
-    friend ostream& operator<< (ostream& o, Animal* const a);
+    friend ostream& operator<< (ostream& o, Reptel* const r);
     
 protected:
     bool temPernas;
