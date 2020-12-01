@@ -652,7 +652,12 @@ void PetFera::atualizarAnimal(string nome) {
     string tipoDeAlimentacao;
     string nomeVeterinario, nomeTratador;
     bool achouNomeVeterinario = false, achouNomeTratador = false;
-
+    double tamanhoDeBico;
+    double tamanhoDasPenas;
+    string origem;
+    ETipoSilvestre tipoSilvestre;
+    char EameacadoDeExtincao;
+ 
     if (this->animais.size() >= 1){
         for (auto& animal : this->animais) {
             if (animal->getEspecie() == nome) {;
@@ -808,6 +813,30 @@ void PetFera::atualizarAnimal(string nome) {
 
             if (tipoClass == "Ave") {
                 Ave* ave =  dynamic_cast<Ave*> (animal);
+
+                // Alterar tamanho do bico
+                cout << "Alterar tamanho do bico? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tamanho de bico: ";
+                    cin >> tamanhoDeBico;
+                    ave->setTamanhoDoBico(tamanhoDeBico);
+                }
+
+                // Alterar tamanho das asas
+                cout << "Alterar tamanho das asas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tamanho das asas: ";
+                    cin >> tamanhoDasPenas;
+                    ave->setTamanhoDasPenas(tamanhoDasPenas);
+                }
             } 
             else if (tipoClass == "Anfibio") {
                 Anfibio* anfibio =  dynamic_cast<Anfibio*> (animal);
@@ -820,6 +849,66 @@ void PetFera::atualizarAnimal(string nome) {
             } 
             else if (tipoClass == "AveSilvestre") {
                 AveSilvestre* aveSilvestre =  dynamic_cast<AveSilvestre*> (animal);
+            
+                // Alterar tamanho do bico
+                cout << "Alterar tamanho do bico? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tamanho de bico: ";
+                    cin >> tamanhoDeBico;
+                    aveSilvestre->setTamanhoDoBico(tamanhoDeBico);
+                }
+
+                // Alterar tamanho das asas
+                cout << "Alterar tamanho das asas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tamanho das asas: ";
+                    cin >> tamanhoDasPenas;
+                    aveSilvestre->setTamanhoDasPenas(tamanhoDasPenas);
+                }
+
+                // Alterar Tipo Silvestre
+                cout << "Alterar origem? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tipo silvetres: ";
+                    cin >> origem;
+                    
+                    if (origem == "Brasil" || origem == "brasil") {
+                        tipoSilvestre = ETipoSilvestre::Nativo;
+                    }
+                    else {
+                        tipoSilvestre = ETipoSilvestre::Exotico;
+                    }
+
+                    aveSilvestre->setOrigem(origem);
+                    aveSilvestre->setTipoSilvestre(tipoSilvestre);
+                }
+                
+                // Alterar tamanho das asas
+                cout << "Alterar tamanho das asas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo ameacado de Extincao: (S | N)";
+                    cin >> EameacadoDeExtincao;
+                    
+                    assert(EameacadoDeExtincao == 'S' || EameacadoDeExtincao == 's' || EameacadoDeExtincao == 'N' || EameacadoDeExtincao == 'n');
+                    
+                    aveSilvestre->setAmeacadoDeExtincao(EameacadoDeExtincao == 'S');
+                }
             } 
             else if (tipoClass == "AnfibioSilvestre") {
                 Silvestre* anfibioSilvestre =  dynamic_cast<AnfibioSilvestre*> (animal);
@@ -831,7 +920,7 @@ void PetFera::atualizarAnimal(string nome) {
                 ReptelSilvestre* reptelSilvestre =  dynamic_cast<ReptelSilvestre*> (animal);
             }
         }
-    }else{
+    } else {
         cout << "Ainda não existem animais cadastrados!" << endl;
     }
 }
