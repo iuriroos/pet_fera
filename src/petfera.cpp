@@ -307,7 +307,7 @@ bool PetFera::cadastrarAnimal() {
     this->cabecalho("Cadastro de Animais!");
 
     if (this->veterinarios.size() >= 1 && this->tratadores.size() >= 1){
-        cout << "Escolha o nome do veterinario dentre os abaixo listados:" << endl;
+        cout << "Escolha o nome do veterinario dentre os abaixo listados:" << endl; 
 
         // Mostra o nome de todos os veterinarios cadastrados
         for (auto& veterinario : this->veterinarios) {
@@ -650,90 +650,177 @@ void PetFera::atualizarAnimal(string nome) {
     string cor;
     double preco;
     string tipoDeAlimentacao;
+    string nomeVeterinario, nomeTratador;
+    bool achouNomeVeterinario = false, achouNomeTratador = false;
 
+    if (this->animais.size() >= 1){
+        for (auto& animal : this->animais) {
+            if (animal->getEspecie() == nome) {;
+                // Alterar espécie
+                cout << "Alterar espécie? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Nova espécie: ";
+                    cin >> especie;
+                    animal->setEspecie(especie);
+                }
+
+<<<<<<< HEAD
+                // Alterar sexo
+                cout << "Alterar sexo? (S | N) ";
+                cin >> escolha;
+=======
     for (auto& animal : this->animais) {
-        if (animal->getEspecie() == nome) {;
+        if (animal->getEspecie() == nome) {
             // Alterar espécie
             cout << "Alterar espécie? (S | N) ";
             cin >> escolha;
+>>>>>>> 59a2fd4312f55219d66f2934921d2b9d7eaeac37
 
-            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
 
-            if (escolha == 'S' || escolha == 's') {
-                cout << "Nova espécie: ";
-                cin >> especie;
-                animal->setEspecie(especie);
-            }
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo sexo (F | M): ";
+                    cin >> sexoC;
 
-            // Alterar sexo
-            cout << "Alterar sexo? (S | N) ";
-            cin >> escolha;
+                    assert(sexoC == 'F' || sexoC == 'f' || sexoC == 'M' || sexoC == 'm');
 
-            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+                    if (sexoC == 'F' || sexoC == 'f') {
+                        sexo = Sexo::Femea;
+                    } else{
+                        sexo = Sexo::Macho;
+                    }
 
-            if (escolha == 'S' || escolha == 's') {
-                cout << "Novo sexo (F | M): ";
-                cin >> sexoC;
-
-                assert(sexoC == 'F' || sexoC == 'f' || sexoC == 'M' || sexoC == 'm');
-
-                if (sexoC == 'F' || sexoC == 'f') {
-                    sexo = Sexo::Femea;
-                } else{
-                    sexo = Sexo::Macho;
+                    animal->setSexo(sexo);
                 }
 
-                animal->setSexo(sexo);
+                // Alterar tamanho
+                cout << "Alterar tamanho? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tamanho: ";
+                    cin >> tamanho;
+                    animal->setTamanho(tamanho);
+                }
+
+                // Alterar cor
+                cout << "Alterar cor? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Nova cor: ";
+                    cin >> cor;
+                    animal->setCor(cor);
+                }
+
+                // Alterar preco
+                cout << "Alterar preço? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo preço: ";
+                    cin >> preco;
+                    animal->setPreco(preco);
+                }
+
+                // Alterar tipo de alimentação
+                cout << "Alterar tipo de alimentação? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tipo de alimentação: ";
+                    cin >> tipoDeAlimentacao;
+                    animal->setTipoDeAlimentacao(tipoDeAlimentacao);
+                }
+
+                // Alterar veterinário
+                cout << "Alterar veterinário? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Escolha um veterinário dentre os listados abaixo: ";
+                    // Mostra o nome de todos os veterinarios cadastrados
+                    for (auto& veterinario : this->veterinarios) {
+                        cout << veterinario->getNome() << endl;
+                    }
+                    cin >> nomeVeterinario;
+                    
+                    for (auto& veterinario : this->veterinarios) {
+                        if (veterinario->getNome() == nomeVeterinario){
+                            achouNomeVeterinario = true;
+                            animal->setVeterinario(veterinario);
+                            break;
+                        }   
+                    }
+
+                    if (achouNomeVeterinario == false){
+                        cout << "Veterinário não encontrado na lista!" << endl;
+                    }
+                    
+                }
+
+                // Alterar tratador
+                cout << "Alterar tratador? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Escolha um tratador dentre os listados abaixo: ";
+                    // Mostra o nome de todos os tratadores cadastrados
+                    for (auto& tratador : this->tratadores) {
+                        cout << tratador->getNome() << endl;
+                    }
+                    cin >> nomeTratador;
+                    
+                    for (auto& tratador : this->tratadores) {
+                        if (tratador->getNome() == nomeTratador){
+                            achouNomeTratador = true;
+                            animal->setTratador(tratador);
+                            break;
+                        }   
+                    }
+
+                    if (achouNomeTratador == false){
+                        cout << "Tratador não encontrado na lista!" << endl;
+                    }
+                    
+                }
             }
 
-            // Alterar tamanho
-            cout << "Alterar tamanho? (S | N) ";
-            cin >> escolha;
+            string tipoClass = typeid(*animal).name();
+    
+            
+            int quantidadeDeNumeros = 0;
 
-            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
-
-            if (escolha == 'S' || escolha == 's') {
-                cout << "Novo tamanho: ";
-                cin >> tamanho;
-                animal->setTamanho(tamanho);
+            while (isdigit(tipoClass[quantidadeDeNumeros]))
+            {
+                quantidadeDeNumeros++;
             }
 
-            // Alterar cor
-            cout << "Alterar cor? (S | N) ";
-            cin >> escolha;
+            tipoClass.erase(0, quantidadeDeNumeros);
+            cout << tipoClass << endl;
 
-            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
-
-            if (escolha == 'S' || escolha == 's') {
-                cout << "Nova cor: ";
-                cin >> cor;
-                animal->setCor(cor);
-            }
-
-            // Alterar preco
-            cout << "Alterar preço? (S | N) ";
-            cin >> escolha;
-
-            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
-
-            if (escolha == 'S' || escolha == 's') {
-                cout << "Novo preço: ";
-                cin >> preco;
-                animal->setPreco(preco);
-            }
-
-            // Alterar tipo de alimentação
-            cout << "Alterar tipo de alimentação? (S | N) ";
-            cin >> escolha;
-
-            assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
-
-            if (escolha == 'S' || escolha == 's') {
-                cout << "Novo tipo de alimentação: ";
-                cin >> tipoDeAlimentacao;
-                animal->setTipoDeAlimentacao(tipoDeAlimentacao);
+            if (tipoClass == "Ave") {
+                
             }
         }
+    }else{
+        cout << "Ainda não existem animais cadastrados!" << endl;
     }
 }
 
@@ -744,7 +831,6 @@ void PetFera::dadosAnimal(string nome) {
     for (auto& animal : this->animais) {
         if (animal->getEspecie() == nome) {
             cout << animal << endl;
-            cout << typeid(*animal).name() << endl;
         }
     }
 }
