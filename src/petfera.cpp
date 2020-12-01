@@ -658,6 +658,7 @@ void PetFera::dadosAnimal(string nome) {
     for (auto& animal : this->animais) {
         if (animal->getEspecie() == nome) {
             cout << animal << endl;
+            cout << typeid(*animal).name() << endl;
         }
     }
 }

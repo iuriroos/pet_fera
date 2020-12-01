@@ -9,7 +9,7 @@ class Reptel : public virtual Animal{
 public:
     Reptel();
     Reptel(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador, bool temPernas, bool temNadadeiras, bool venenoso, bool peconhento, bool poeOvos, bool temCarapaca, bool consegueNadar);
-    ~Reptel();
+    virtual ~Reptel();
 
     bool getTemPernas() const;
     void setTemPernas(bool temPernas);
@@ -31,6 +31,8 @@ public:
 
     bool getConsegueNadar() const;
     void setConsegueNadar(bool consegueNadar);
+
+    friend ostream& operator<< (ostream& o, Animal* const a);
     
 protected:
     bool temPernas;

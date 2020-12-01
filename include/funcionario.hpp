@@ -10,7 +10,8 @@ class Funcionario {
 public:
 	Funcionario();
 	Funcionario(string nome, string cpf, string matricula, double salario, string nascimento);
-	~Funcionario();
+	virtual ~Funcionario();
+
 	string getNome() const;
 	string getCpf() const;
 	string getMatricula() const;
@@ -21,6 +22,7 @@ public:
 	void setMatricula(string matricula);
 	void setSalario(double salario);
 	void setNascimento(string nascimento);
+
 protected:
 	string nome;
 	string cpf;

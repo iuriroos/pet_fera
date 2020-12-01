@@ -23,3 +23,15 @@ double Ave::getTamanhoDasPenas() const{
 void Ave::setTamanhoDasPenas(double tamanhoDasPenas){
     this->tamanhoDasPenas = tamanhoDasPenas;
 }
+
+ostream& operator<< (ostream& o, Ave* const a) {
+	o <<
+		"Especies: " << a->getEspecie() << endl <<
+		"Cor: " << a->getCor() << endl <<
+		"Preço: " << a->getPreco() << endl <<
+		"Tipo de Alimentação: " << a->getTipoDeAlimentacao() <<
+        "tamanho do bico: " << a->getTamanhoDoBico() <<
+        "Tamanho das pernas: " << a->getTamanhoDasPenas();
+
+	return o;
+}

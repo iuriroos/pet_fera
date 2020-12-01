@@ -16,7 +16,7 @@ class Animal {
 public:
     Animal();
     Animal(string especie, Sexo sexo, int tamanho, string cor, double preco, string tipoDeAlimentacao, Veterinario* veterinario, Tratador* tratador);
-    ~Animal();
+    virtual ~Animal();
 
     string getEspecie() const;
     void setEspecie(string especie);
@@ -43,6 +43,7 @@ public:
     void setTratador(Tratador* novo);
 
     friend ostream& operator<< (ostream& o, Animal* const a);
+    
 protected:
     string especie;
     Sexo sexo;

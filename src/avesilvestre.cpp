@@ -9,3 +9,15 @@ AveSilvestre::AveSilvestre(string especie, Sexo sexo, int tamanho, string cor, d
       Silvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinario, tratador, tipoSilvestre, origem, ameacadoDeExtincao) {}
 
 AveSilvestre::~AveSilvestre() {}
+
+ostream& operator<< (ostream& o, AveSilvestre* const a) {
+	o <<
+		"Especies: " << a->getEspecie() << endl <<
+		"Cor: " << a->getCor() << endl <<
+		"Preço: " << a->getPreco() << endl <<
+		"Tipo de Alimentação: " << a->getTipoDeAlimentacao() <<
+		"tamanho do bico: " << a->getTamanhoDoBico() <<
+		"Tamanho das pernas: " << a->getTamanhoDasPenas();
+
+	return o;
+}
