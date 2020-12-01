@@ -295,6 +295,8 @@ bool PetFera::listarFuncionario(string nome) {
 }
 
 bool PetFera::cadastrarAnimal() {
+    this->cabecalho("Cadastro de Animais!");
+
     string especie, cor, tipoDeAlimentacao, origem, nome;
     Sexo sexo;
     int tamanho, tipoClassificacao;
@@ -660,6 +662,14 @@ void PetFera::dadosAnimal(string nome) {
     }
 }
 
-void PetFera::listarAnimaisPorFuncionario(string nomeFuncionario) { }
+void PetFera::listarAnimaisPorFuncionario(string nomeFuncionario) {
+    this->cabecalho("Listar animais por Funcionário!");
+
+    for (auto& animal : this->animais) {
+        if (animal->getVeterinario()->getNome() == nomeFuncionario || animal->getTratador()->getNome() == nomeFuncionario) {
+            cout << animal << endl;
+        }
+    }
+}
 
 void PetFera::dadosDeUmaClasseAnimal(string nome) {}
