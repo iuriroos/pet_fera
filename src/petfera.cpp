@@ -657,6 +657,8 @@ void PetFera::atualizarAnimal(string nome) {
     string origem;
     ETipoSilvestre tipoSilvestre;
     char EameacadoDeExtincao;
+    char eVenenoso;
+    char temPernas;
  
     if (this->animais.size() >= 1){
         for (auto& animal : this->animais) {
@@ -840,6 +842,30 @@ void PetFera::atualizarAnimal(string nome) {
             } 
             else if (tipoClass == "Anfibio") {
                 Anfibio* anfibio =  dynamic_cast<Anfibio*> (animal);
+
+                // Alterar e venenoso
+                cout << "Alterar E venenoso? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo é venenoso: (S | N)";
+                    cin >> eVenenoso;
+                    anfibio->setEVenenoso(eVenenoso == 'S');
+                }
+
+                // Alterar tem pernas
+                cout << "Alterar Tem pernas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tem pernas: (S | N)";
+                    cin >> temPernas;
+                    anfibio->setTemPernas(temPernas == 'S');
+                }
             }
             else if (tipoClass == "Mamifero") {
                 Mamifero* mamifero =  dynamic_cast<Mamifero*> (animal);
@@ -911,7 +937,67 @@ void PetFera::atualizarAnimal(string nome) {
                 }
             } 
             else if (tipoClass == "AnfibioSilvestre") {
-                Silvestre* anfibioSilvestre =  dynamic_cast<AnfibioSilvestre*> (animal);
+                AnfibioSilvestre* anfibioSilvestre =  dynamic_cast<AnfibioSilvestre*> (animal);
+                
+                // Alterar e venenoso
+                cout << "Alterar E venenoso? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo é venenoso: (S | N)";
+                    cin >> eVenenoso;
+                    anfibioSilvestre->setEVenenoso(eVenenoso == 'S');
+                }
+
+                // Alterar tem pernas
+                cout << "Alterar Tem pernas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tem pernas: (S | N)";
+                    cin >> temPernas;
+                    anfibioSilvestre->setTemPernas(temPernas == 'S');
+                }
+
+                // Alterar Tipo Silvestre
+                cout << "Alterar origem? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tipo silvetres: ";
+                    cin >> origem;
+                    
+                    if (origem == "Brasil" || origem == "brasil") {
+                        tipoSilvestre = ETipoSilvestre::Nativo;
+                    }
+                    else {
+                        tipoSilvestre = ETipoSilvestre::Exotico;
+                    }
+
+                    anfibioSilvestre->setOrigem(origem);
+                    anfibioSilvestre->setTipoSilvestre(tipoSilvestre);
+                }
+                
+                // Alterar tamanho das asas
+                cout << "Alterar tamanho das asas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo ameacado de Extincao: (S | N)";
+                    cin >> EameacadoDeExtincao;
+                    
+                    assert(EameacadoDeExtincao == 'S' || EameacadoDeExtincao == 's' || EameacadoDeExtincao == 'N' || EameacadoDeExtincao == 'n');
+                    
+                    anfibioSilvestre->setAmeacadoDeExtincao(EameacadoDeExtincao == 'S');
+                }
             }
             else if (tipoClass == "MamiferoSilvestre") {
                 MamiferoSilvestre* mamiferoSilvestre =  dynamic_cast<MamiferoSilvestre*> (animal);
