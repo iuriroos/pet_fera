@@ -11,6 +11,10 @@ WESTEFNS DAMIAO DE SOUZA SILVA - Matrícula: 20190043130
 
 https://github.com/iuriroos/pet_fera
 
+- Link do vídeo do YouTube:
+
+https://youtu.be/f63YMKfGGF0
+
 - Descrição e usabilidade:
 
 O programa apresenta a seguinte interface:
