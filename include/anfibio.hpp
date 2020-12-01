@@ -19,7 +19,7 @@ public:
 
     friend ostream& operator<< (ostream& o, Anfibio* const a);
 
-private:
+protected:
     bool eVenenoso;
     bool temPernas;
 };
