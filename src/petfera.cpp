@@ -663,6 +663,13 @@ void PetFera::atualizarAnimal(string nome) {
     int tipoMamifero;
     int quantidadeDeDentes;
     char temAsas;
+    char temPernas;
+    char temNadadeiras;
+    char venenoso;
+    char peconhento;
+    char poeOvos;
+    char temCarapaca;
+    char consegueNadar;
  
     if (this->animais.size() >= 1){
         for (auto& animal : this->animais) {
@@ -886,18 +893,6 @@ void PetFera::atualizarAnimal(string nome) {
                     mamifero->setHabitat(habitat);
                 }
 
-                // Alterar habitat
-                cout << "Alterar habitat? (S | N) ";
-                cin >> escolha;
-
-                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
-
-                if (escolha == 'S' || escolha == 's') {
-                    cout << "Novo habitat:";
-                    cin >> habitat;
-                    mamifero->setHabitat(habitat);
-                }
-
                 // Alterar tipo
                 cout << "Alterar tipo de mamifero? (S | N) ";
                 cin >> escolha;
@@ -912,7 +907,7 @@ void PetFera::atualizarAnimal(string nome) {
                     mamifero->setTipo((Tipo) tipoMamifero);
                 }
 
-                // Alterar tipo
+                // Alterar quantidade de dentes
                 cout << "Alterar quantidade de dentes? (S | N) ";
                 cin >> escolha;
 
@@ -935,11 +930,150 @@ void PetFera::atualizarAnimal(string nome) {
                     cout << "Novo tem asas: (S | N)";
                     cin >> temAsas;
 
-                    mamifero->setTemAsas(temAsas == 'S');
+                    if (temAsas == 'S' || temAsas == 's'){
+                        mamifero->setTemAsas(true);   
+                    }
+
+                    if (temAsas == 'N' || temAsas == 'n'){
+                        mamifero->setTemAsas(false);   
+                    }
                 }
             }
             else if (tipoClass == "Reptel") {
                 Reptel* reptel =  dynamic_cast<Reptel*> (animal);
+
+                // Alterar tem pernas
+                cout << "Alterar tem pernas? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tem pernas: (S | N)";
+                    cin >> temPernas;
+
+                    if (temPernas == 'S' || temPernas == 's'){
+                        reptel->setTemPernas(true);   
+                    }
+
+                    if (temPernas == 'N' || temPernas == 'n'){
+                        reptel->setTemPernas(false);   
+                    }
+                }
+
+                // Alterar tem nadadeiras
+                cout << "Alterar tem nadadeiras? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tem nadadeiras: (S | N)";
+                    cin >> temNadadeiras;
+
+                    if (temNadadeiras == 'S' || temNadadeiras == 's'){
+                        reptel->setTemNadadeiras(true);   
+                    }
+
+                    if (temNadadeiras == 'N' || temNadadeiras == 'n'){
+                        reptel->setTemNadadeiras(false);   
+                    }
+                }
+
+                // Alterar venenoso
+                cout << "Alterar venenoso? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo venenoso: (S | N)";
+                    cin >> venenoso;
+
+                    if (venenoso == 'S' || venenoso == 's'){
+                        reptel->setVenenoso(true);   
+                    }
+
+                    if (venenoso == 'N' || venenoso == 'n'){
+                        reptel->setVenenoso(false);   
+                    }
+                }
+
+                // Alterar peçonhento
+                cout << "Alterar peçonhento? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo peçonhento: (S | N)";
+                    cin >> peconhento;
+
+                    if (peconhento == 'S' || peconhento == 's'){
+                        reptel->setPeconhento(true);   
+                    }
+
+                    if (peconhento == 'N' || peconhento == 'n'){
+                        reptel->setPeconhento(false);   
+                    }
+                }
+
+                // Alterar põe ovos
+                cout << "Alterar põe ovos? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo põe ovos: (S | N)";
+                    cin >> poeOvos;
+
+                    if (poeOvos == 'S' || poeOvos == 's'){
+                        reptel->setPoeOvos(true);   
+                    }
+
+                    if (poeOvos == 'N' || poeOvos == 'n'){
+                        reptel->setPoeOvos(false);   
+                    }
+                }
+
+                // Alterar tem carapaça
+                cout << "Alterar tem carapaça? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo tem carapaça: (S | N)";
+                    cin >> temCarapaca;
+
+                    if (temCarapaca == 'S' || temCarapaca == 's'){
+                        reptel->setTemCarapaca(true);   
+                    }
+
+                    if (temCarapaca == 'N' || temCarapaca == 'n'){
+                        reptel->setTemCarapaca(false);   
+                    }
+                }
+
+                // Alterar consegue nadar
+                cout << "Alterar consegue nadar? (S | N) ";
+                cin >> escolha;
+
+                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
+
+                if (escolha == 'S' || escolha == 's') {
+                    cout << "Novo consegue nadar: (S | N)";
+                    cin >> consegueNadar;
+
+                    if (consegueNadar == 'S' || consegueNadar == 's'){
+                        reptel->setConsegueNadar(true);   
+                    }
+
+                    if (consegueNadar == 'N' || consegueNadar == 'n'){
+                        reptel->setConsegueNadar(false);   
+                    }
+                }
             } 
             else if (tipoClass == "AveSilvestre") {
                 AveSilvestre* aveSilvestre =  dynamic_cast<AveSilvestre*> (animal);
