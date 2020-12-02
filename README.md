@@ -13,7 +13,11 @@ https://github.com/iuriroos/pet_fera
 
 - Link do vídeo do YouTube:
 
+Subimos o vídeo nesse link inicialmente, porém o youtube restringiu devido ter mais de 15 minutos e era uma conta não verificada.
 https://youtu.be/f63YMKfGGF0
+
+Por causa disse reinviamos o vídeos agora na conta verificada, o novo link é esse.
+https://youtu.be/SBmQoXTvWYE
 
 - Descrição e usabilidade:
 
