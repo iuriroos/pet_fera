@@ -31,20 +31,38 @@ void Silvestre::setAmeacadoDeExtincao(bool ameacadoDeExtincao) {
     this->ameacadoDeExtincao = ameacadoDeExtincao;
 }
 
+// ostream& operator<< (ostream& o, Silvestre* const s) {
+// 	string nativoOrExotico = "Exotico", ameacado = "não";
+
+//     if(s->getTipoSilvestre() == ETipoSilvestre::Nativo) nativoOrExotico = "Nativo";
+//     if(s->getAmeacadoDeExtincao()) ameacado = "sim";
+
+//     o <<
+// 		"Especies: " << s->getEspecie() << endl <<
+// 		"Cor: " << s->getCor() << endl <<
+// 		"Preço: " << s->getPreco() << endl <<
+// 		"Tipo de Alimentação: " << s->getTipoDeAlimentacao() <<
+//         "Tipo silvestres: " << nativoOrExotico <<
+//         "Origem: " << s->getOrigem() << 
+//         "Ameaçado de extinção: " << ameacado;
+
+// 	return o;
+// }
+
 ostream& operator<< (ostream& o, Silvestre* const s) {
 	string nativoOrExotico = "Exotico", ameacado = "não";
 
     if(s->getTipoSilvestre() == ETipoSilvestre::Nativo) nativoOrExotico = "Nativo";
     if(s->getAmeacadoDeExtincao()) ameacado = "sim";
 
-    o <<
-		"Especies: " << s->getEspecie() << endl <<
-		"Cor: " << s->getCor() << endl <<
-		"Preço: " << s->getPreco() << endl <<
-		"Tipo de Alimentação: " << s->getTipoDeAlimentacao() <<
-        "Tipo silvestres: " << nativoOrExotico <<
-        "Origem: " << s->getOrigem() << 
-        "Ameaçado de extinção: " << ameacado;
+    o
+		<< s->getEspecie() << ";"
+		<< s->getCor() << ";"
+		<< s->getPreco() << ";"
+		<< s->getTipoDeAlimentacao() << ";"
+        << nativoOrExotico << ";"
+        << s->getOrigem() << ";"
+        << ameacado;
 
 	return o;
 }
