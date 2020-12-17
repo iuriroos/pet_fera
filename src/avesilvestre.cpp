@@ -10,22 +10,42 @@ AveSilvestre::AveSilvestre(string especie, Sexo sexo, int tamanho, string cor, d
 
 AveSilvestre::~AveSilvestre() {}
 
+// ostream& operator<< (ostream& o, AveSilvestre* const as) {
+// 	string nativoOrExotico = "Exotico", ameacado = "não";
+
+//     if(as->getTipoSilvestre() == ETipoSilvestre::Nativo) nativoOrExotico = "Nativo";
+//     if(as->getAmeacadoDeExtincao()) ameacado = "sim";
+
+// 	o <<
+// 		"Especies: " << as->getEspecie() << endl <<
+// 		"Cor: " << as->getCor() << endl <<
+// 		"Preço: " << as->getPreco() << endl <<
+// 		"Tipo de Alimentação: " << as->getTipoDeAlimentacao() << endl <<
+// 		"tamanho do bico: " << as->getTamanhoDoBico() << endl <<
+// 		"Tamanho das pernas: " << as->getTamanhoDasPenas() << endl <<
+// 		"Tipo silvestres: " << nativoOrExotico << endl <<
+//         "Origem: " << as->getOrigem() << endl <<
+//         "Ameaçado de extinção: " << ameacado;
+
+// 	return o;
+// }
+
 ostream& operator<< (ostream& o, AveSilvestre* const as) {
 	string nativoOrExotico = "Exotico", ameacado = "não";
 
     if(as->getTipoSilvestre() == ETipoSilvestre::Nativo) nativoOrExotico = "Nativo";
     if(as->getAmeacadoDeExtincao()) ameacado = "sim";
 
-	o <<
-		"Especies: " << as->getEspecie() << endl <<
-		"Cor: " << as->getCor() << endl <<
-		"Preço: " << as->getPreco() << endl <<
-		"Tipo de Alimentação: " << as->getTipoDeAlimentacao() << endl <<
-		"tamanho do bico: " << as->getTamanhoDoBico() << endl <<
-		"Tamanho das pernas: " << as->getTamanhoDasPenas() << endl <<
-		"Tipo silvestres: " << nativoOrExotico << endl <<
-        "Origem: " << as->getOrigem() << endl <<
-        "Ameaçado de extinção: " << ameacado;
+	o 
+		<< as->getEspecie() << ";"
+		<< as->getCor() << ";"
+		<< as->getPreco() << ";"
+		<< as->getTipoDeAlimentacao() << ";"
+		<< as->getTamanhoDoBico() << ";"
+		<< as->getTamanhoDasPenas() << ";"
+		<< nativoOrExotico << ";"
+        << as->getOrigem() << ";"
+        << ameacado;
 
 	return o;
 }

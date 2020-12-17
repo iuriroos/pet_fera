@@ -88,3 +88,30 @@ ostream& operator<< (ostream& o, Reptel* const r) {
 
 	return o;
 }
+
+ostream& operator<< (ostream& o, Reptel* const r) {
+    string temPerna = "não", temNadadeira = "não", venenoso = "não", peconhento = "não", poeOvos = "não", temCarapacas = "não", consegueNadar = "não"; 
+
+    if(r->getTemPernas()) temPerna = "sim";
+    if(r->getTemNadadeiras()) temNadadeira = "sim";
+    if(r->getVenenoso()) venenoso = "sim";
+    if(r->getPeconhento()) peconhento = "sim";
+    if(r->getPoeOvos()) poeOvos = "sim";
+    if(r->getTemCarapaca()) temCarapacas = "sim";
+    if(r->getConsegueNadar()) consegueNadar = "sim";
+
+	o 
+        << r->getEspecie() << ";"
+		<< r->getCor() << ";"
+		<< r->getPreco() << ";"
+		<< r->getTipoDeAlimentacao() << ";"
+        <<  temPerna << ";"
+        << temNadadeira << ";"
+        << venenoso << ";"
+        << peconhento << ";"
+        << poeOvos << ";"
+        << temCarapacas << ";"
+        << consegueNadar;
+
+	return o;
+}

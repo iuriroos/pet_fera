@@ -40,20 +40,39 @@ void Mamifero::setTemAsas(bool temAsas){
     this->temAsas = temAsas;
 }
 
+// ostream& operator<< (ostream& o, Mamifero* const m) {
+// 	string TipoMamifero = "Cursorial", temAsas = "não";
+
+//     if (m->getTemAsas()) temAsas = "sim";
+
+//     o <<
+// 		"Especies: " << m->getEspecie() << endl <<
+// 		"Cor: " << m->getCor() << endl <<
+// 		"Preço: " << m->getPreco() << endl <<
+// 		"Tipo de Alimentação: " << m->getTipoDeAlimentacao() << endl <<
+//         "Habitat: " << m->getHabitat() << endl <<
+//         "Tipo: " << TipoMamifero << endl <<
+//         "Quantidade de Dentes: " << m->getQuantidadeDeDentes() << endl <<
+//         "Tem Asas: " << temAsas;
+
+// 	return o;
+// }
+
+
 ostream& operator<< (ostream& o, Mamifero* const m) {
 	string TipoMamifero = "Cursorial", temAsas = "não";
 
     if (m->getTemAsas()) temAsas = "sim";
 
-    o <<
-		"Especies: " << m->getEspecie() << endl <<
-		"Cor: " << m->getCor() << endl <<
-		"Preço: " << m->getPreco() << endl <<
-		"Tipo de Alimentação: " << m->getTipoDeAlimentacao() << endl <<
-        "Habitat: " << m->getHabitat() << endl <<
-        "Tipo: " << TipoMamifero << endl <<
-        "Quantidade de Dentes: " << m->getQuantidadeDeDentes() << endl <<
-        "Tem Asas: " << temAsas;
+    o
+        << m->getEspecie() << ";"
+		<< m->getCor() << ";"
+		<< m->getPreco() << ";"
+		<< m->getTipoDeAlimentacao() << ";"
+        << m->getHabitat() << ";"
+        << TipoMamifero << ";"
+        << m->getQuantidadeDeDentes() << ";"
+        << temAsas;
 
 	return o;
 }
