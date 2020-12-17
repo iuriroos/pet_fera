@@ -29,7 +29,7 @@ ostream& operator<< (ostream& o, Veterinario* const v) {
 		<< v->getMatricula() << ";"
 		<< v->getSalario() << ";"
 		<< v->getNascimento() << ";"
-		<< v->getCrmv();
+		<< v->getCrmv() << ";";
 
 	return o;
 }

@@ -52,7 +52,7 @@ ostream& operator<< (ostream& o, MamiferoSilvestre* const ms) {
         << temAsas << ";"
         << nativoOrExotico << ";"
         << ms->getOrigem() << ";"
-        << ameacado;
+        << ameacado << ";";
 
 	return o;
 }

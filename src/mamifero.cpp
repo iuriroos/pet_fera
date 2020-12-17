@@ -72,7 +72,7 @@ ostream& operator<< (ostream& o, Mamifero* const m) {
         << m->getHabitat() << ";"
         << TipoMamifero << ";"
         << m->getQuantidadeDeDentes() << ";"
-        << temAsas;
+        << temAsas << ";";
 
 	return o;
 }

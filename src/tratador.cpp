@@ -40,7 +40,7 @@ ostream& operator<< (ostream& o, Tratador* const t) {
 		<< t->getMatricula() << ";"
 		<< t->getSalario() << ";"
 		<< t->getNascimento() << ";"
-		<< t->getNivelDeSeguranca();
+		<< t->getNivelDeSeguranca() << ";";
 
 	return o;
 }

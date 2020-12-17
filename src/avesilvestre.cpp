@@ -45,7 +45,7 @@ ostream& operator<< (ostream& o, AveSilvestre* const as) {
 		<< as->getTamanhoDasPenas() << ";"
 		<< nativoOrExotico << ";"
         << as->getOrigem() << ";"
-        << ameacado;
+        << ameacado << ";";
 
 	return o;
 }

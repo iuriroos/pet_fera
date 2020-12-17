@@ -69,7 +69,7 @@ ostream& operator<< (ostream& o, ReptelSilvestre* const rs) {
         << consegueNadar << ";"
         << nativoOrExotico << ";"
         << rs->getOrigem() << ";"
-        << ameacado;
+        << ameacado << ";";
 
 	return o;
 }
