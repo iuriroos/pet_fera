@@ -71,12 +71,22 @@ void Animal::setTratador(Tratador* novo) {
     this->tratador = novo;
 }
 
+// ostream& operator<< (ostream& o, Animal* const a) {
+// 	o <<
+// 		"Especies: " << a->getEspecie() << endl <<
+// 		"Cor: " << a->getCor() << endl <<
+// 		"Preço: " << a->getPreco() << endl <<
+// 		"Tipo de Alimentação: " << a->getTipoDeAlimentacao();
+
+// 	return o;
+// }
+
 ostream& operator<< (ostream& o, Animal* const a) {
-	o <<
-		"Especies: " << a->getEspecie() << endl <<
-		"Cor: " << a->getCor() << endl <<
-		"Preço: " << a->getPreco() << endl <<
-		"Tipo de Alimentação: " << a->getTipoDeAlimentacao();
+	o
+	    << a->getEspecie() << ";"
+		<< a->getCor() << ";"
+		<< a->getPreco() << ";"
+		<< a->getTipoDeAlimentacao() << ";";
 
 	return o;
 }
