@@ -10,14 +10,26 @@ void Veterinario::setCrmv(string crmv) {
 	this->crmv = crmv;
 }
 
+// ostream& operator<< (ostream& o, Veterinario* const v) {
+// 	o <<
+// 		"Nome: " << v->getNome() << endl <<
+// 		"CPF: " << v->getCpf() << endl <<
+// 		"Matricula: " << v->getMatricula() << endl <<
+// 		"Salario: " << v->getSalario() << endl <<
+// 		"Nascimento: " << v->getNascimento() << endl << 
+// 		"CRMV: " << v->getCrmv() << endl;
+
+// 	return o;
+// }
+
 ostream& operator<< (ostream& o, Veterinario* const v) {
 	o <<
-		"Nome: " << v->getNome() << endl <<
-		"CPF: " << v->getCpf() << endl <<
-		"Matricula: " << v->getMatricula() << endl <<
-		"Salario: " << v->getSalario() << endl <<
-		"Nascimento: " << v->getNascimento() << endl << 
-		"CRMV: " << v->getCrmv() << endl;
+		v->getNome() << ";"
+		<< v->getCpf() << ";"
+		<< v->getMatricula() << ";"
+		<< v->getSalario() << ";"
+		<< v->getNascimento() << ";"
+		<< v->getCrmv();
 
 	return o;
 }

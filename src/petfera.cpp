@@ -1,3 +1,7 @@
+#include <iostream>
+#include <fstream>
+using std::ofstream;
+
 #include "petfera.hpp"
 #include "avesilvestre.hpp"
 #include "anfibiosilvestre.hpp"
@@ -19,7 +23,7 @@ void PetFera::cadastrarFuncionario() {
     string nome, cpf, matricula, nascimento, crmv, cor;
     Cor nivel_de_seguranca = Cor::Nenhum;
     double salario;
-    char escolha; 
+    char escolha;
 
     this->cabecalho("Cadastro de Funcionários!");
 
@@ -45,8 +49,10 @@ void PetFera::cadastrarFuncionario() {
     if (escolha == 'V' || escolha == 'v') {
         cout << "CRMV: ";
         cin >> crmv;
-
-        this->veterinarios.push_back(new Veterinario(nome, cpf, matricula, salario, nascimento, crmv));
+        Veterinario* veterinario = new Veterinario(nome, cpf, matricula, salario, nascimento, crmv);
+        this->veterinarios.push_back(veterinario);
+        ofstream arqVeterinarios("veterinarios.dat", ios::app );
+        arqVeterinarios << veterinario << endl;
     }
     
     // Funcionario eh tratador
@@ -65,8 +71,11 @@ void PetFera::cadastrarFuncionario() {
         else if (cor == "Vermelho" || cor == "vermelho") {
             nivel_de_seguranca = Cor::Vermelho;
         }
+        Tratador* tratador = new Tratador(nome, cpf, matricula, salario, nascimento, nivel_de_seguranca);
+        this->tratadores.push_back(tratador);
 
-        this->tratadores.push_back(new Tratador(nome, cpf, matricula, salario, nascimento, nivel_de_seguranca));
+        ofstream arqTratadores("tratadores.dat", ios::app);
+        arqTratadores << tratador << endl;
     }
 }
 
@@ -661,7 +670,6 @@ void PetFera::atualizarAnimal(string nome) {
     int tipoMamifero;
     int quantidadeDeDentes;
     char temAsas;
-    char temPernas;
     char temNadadeiras;
     char venenoso;
     char peconhento;

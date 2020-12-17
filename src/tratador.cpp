@@ -21,14 +21,26 @@ void Tratador::setNivelDeSeguranca(Cor nivel_de_seguranca) {
 	this->nivel_de_seguranca = nivel_de_seguranca;
 }
 
+// ostream& operator<< (ostream& o, Tratador* const t) {
+// 	o <<
+// 		"Nome: " << t->getNome() << endl <<
+// 		"CPF: " << t->getCpf() << endl <<
+// 		"Matricula: " << t->getMatricula() << endl <<
+// 		"Salario: " << t->getSalario() << endl <<
+// 		"Nascimento: " << t->getNascimento() << endl <<
+// 		"Nivel de seguranca: " << t->getNivelDeSeguranca() << endl;
+
+// 	return o;
+// }
+
 ostream& operator<< (ostream& o, Tratador* const t) {
 	o <<
-		"Nome: " << t->getNome() << endl <<
-		"CPF: " << t->getCpf() << endl <<
-		"Matricula: " << t->getMatricula() << endl <<
-		"Salario: " << t->getSalario() << endl <<
-		"Nascimento: " << t->getNascimento() << endl <<
-		"Nivel de seguranca: " << t->getNivelDeSeguranca() << endl;
+		t->getNome() << ";"
+		<< t->getCpf() << ";"
+		<< t->getMatricula() << ";"
+		<< t->getSalario() << ";"
+		<< t->getNascimento() << ";"
+		<< t->getNivelDeSeguranca();
 
 	return o;
 }
