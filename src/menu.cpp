@@ -31,6 +31,33 @@ int menuPetFera(PetFera* petfera) {
         }
     } 
 
+    ifstream arqTratadores("tratadores.dat");
+    Cor nivel_de_seguranca = Cor::Nenhum;
+
+    if (arqTratadores.is_open()){
+        while (getline(arqTratadores, linha)){
+            stringstream s(linha);
+            vector<string> tokens;
+            while (getline(s, palavra, ';')){
+                tokens.push_back(palavra);
+            }
+
+            if (tokens.at(5) == "Verde" || tokens.at(5) == "verde"){
+                nivel_de_seguranca = Cor::Verde;
+            }
+            if (tokens.at(5) == "Azul" || tokens.at(5) == "azul"){
+                nivel_de_seguranca = Cor::Azul;
+            }
+            if (tokens.at(5) == "Vermelho" || tokens.at(5) == "vermelho"){
+                nivel_de_seguranca = Cor::Vermelho;
+            }
+            
+            if (tokens.size() == 6){
+                petfera->tratadores.push_back(new Tratador(tokens.at(0), tokens.at(1), tokens.at(2), stod(tokens.at(3)), tokens.at(4), nivel_de_seguranca));
+            }   
+        }
+    } 
+
     do {
         cout << endl << "Menu principal:" << endl << endl;
         cout << "(1)  Cadastrar um novo animal a ser comercializado." << endl;
