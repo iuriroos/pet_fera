@@ -88,3 +88,7 @@ Opção (12) Sair do programa:
 
 Obs: Existem várias verificações de assert pelo programa que encerrará-lo caso o usuário digite uma opção inválida (em uma pergunta (S | N), por exemplo).
 Obs2: Caractéres minúsculos são aceitos em todas as perguntas.
+
+Parte 2:
+
+Na parte 2 do projeto, conseguimos implementar a persistência dos arquivos, tanto para gravar quanto para ler. Para gravar, conseguimos fazer para todos, mas para ler e carregar os arquivos no início do programa, só conseguimos fazer para o cadastro de Veterinários e Tratadores.
