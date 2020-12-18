@@ -17,7 +17,7 @@ PetFera::~PetFera() {}
 void PetFera::cabecalho(string mensagem)
 {
     cout << "==============================================================" << endl;
-    cout << "                    " << mensagem << "                    " << endl;
+    cout << "                   " << mensagem << "                      " << endl;
     cout << "==============================================================" << endl;
 }
 
@@ -492,241 +492,231 @@ bool PetFera::cadastrarAnimal()
 
     ofstream arqAves("aves.dat", ios::app);
     ofstream arqAnfibios("anfibios.dat", ios::app);
-    ofstream arqManiferos("maniferos.dat", ios::app);
+    ofstream arqMamiferos("mamiferos.dat", ios::app);
     ofstream arqRepteis("repteis.dat", ios::app);
     
     
     if (ESilvestre == 'S' || ESilvestre == 's')
     {
         
-        switch (tipoClassificacao)
-        {
-        case 1:
-            // Ave
-            cout << "Tamanho do bico em cm: ";
-            cin >> tamanhoDoBico;
+        switch (tipoClassificacao){
+            case 1:
+                // Ave
+                cout << "Tamanho do bico em cm: ";
+                cin >> tamanhoDoBico;
 
-            cout << "Tamanho das penas em cm: ";
-            cin >> tamanhoDasPenas;
+                cout << "Tamanho das penas em cm: ";
+                cin >> tamanhoDasPenas;
 
-            AveSilvestre* aveSilvestre = new AveSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, tamanhoDoBico, tamanhoDasPenas);
-            animal = aveSilvestre;
+                animal = new AveSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, tamanhoDoBico, tamanhoDasPenas);
 
-            arqAveSilvestre << aveSilvestre << endl;
+                arqAveSilvestre << animal << endl;
 
-            break;
-        case 2:
-            // Anfibio
-            cout << "É venenoso? (S | N): ";
-            cin >> venenosoC;
+                break;
+            case 2:
+                // Anfibio
+                cout << "É venenoso? (S | N): ";
+                cin >> venenosoC;
 
-            if (venenosoC == 'S' || venenosoC == 's')
-                eVenenoso = true;
+                if (venenosoC == 'S' || venenosoC == 's')
+                    eVenenoso = true;
 
-            cout << "Tem Pernas? (S | N): ";
-            cin >> temPernasC;
+                cout << "Tem Pernas? (S | N): ";
+                cin >> temPernasC;
 
-            if (temPernasC == 'S' || temPernasC == 's')
-                temPernas = true;
+                if (temPernasC == 'S' || temPernasC == 's')
+                    temPernas = true;
 
-            AnfibioSilvestre* anfibiosSilvestre = new AnfibioSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, eVenenoso, temPernas);
-            animal = anfibiosSilvestre;
+                animal = new AnfibioSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, eVenenoso, temPernas);
 
-            arqAnfibiosSilvestre << anfibiosSilvestre << endl;
-            
-            break;
-        case 3:
-            // Mamifero
-            cout << "Habitat: ";
-            cin >> habitat;
+                arqAnfibiosSilvestre << animal << endl;
+                
+                break;
+            case 3:
+                // Mamifero
+                cout << "Habitat: ";
+                cin >> habitat;
 
-            cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: 4";
-            cin >> tipoMamifero;
+                cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: 4";
+                cin >> tipoMamifero;
 
-            cout << "Quantidade de dentes: ";
-            cin >> quantidadeDeDentes;
+                cout << "Quantidade de dentes: ";
+                cin >> quantidadeDeDentes;
 
-            cout << "Tem Asas? (S | N) ";
-            cin >> temAsasC;
+                cout << "Tem Asas? (S | N) ";
+                cin >> temAsasC;
 
-            if (temAsasC == 'S' || temAsasC == 's')
-                temAsas = true;
+                if (temAsasC == 'S' || temAsasC == 's')
+                    temAsas = true;
 
-            MamiferoSilvestre* mamiferoSilvestre = new MamiferoSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, habitat, (Tipo)tipoMamifero, quantidadeDeDentes, temAsas);
-            animal = mamiferoSilvestre;
+                animal = new MamiferoSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, habitat, (Tipo)tipoMamifero, quantidadeDeDentes, temAsas);
 
-            arqMamiferoSilvestres << mamiferoSilvestre << endl;
+                arqMamiferoSilvestres << animal << endl;
 
-            break;
-        case 4:
-            // Reptil
-            cout << "Tem pernas? (S | N)";
-            cin >> temPernasC;
+                break;
+            case 4:
+                // Reptil
+                cout << "Tem pernas? (S | N)";
+                cin >> temPernasC;
 
-            if (temPernasC == 'S' || temPernasC == 's')
-                temPernas = true;
+                if (temPernasC == 'S' || temPernasC == 's')
+                    temPernas = true;
 
-            cout << "Tem nadadeiras? (S | N)";
-            cin >> temNadadeirasC;
+                cout << "Tem nadadeiras? (S | N)";
+                cin >> temNadadeirasC;
 
-            if (temNadadeirasC == 'S' || temNadadeirasC == 's')
-                temNadadeiras = true;
+                if (temNadadeirasC == 'S' || temNadadeirasC == 's')
+                    temNadadeiras = true;
 
-            cout << "É venenoso? (S | N)";
-            cin >> venenosoC;
+                cout << "É venenoso? (S | N)";
+                cin >> venenosoC;
 
-            if (venenosoC == 'S' || venenosoC == 's')
-                eVenenoso = true;
+                if (venenosoC == 'S' || venenosoC == 's')
+                    eVenenoso = true;
 
-            cout << "É peçonhento? (S | N)";
-            cin >> peconhentoC;
+                cout << "É peçonhento? (S | N)";
+                cin >> peconhentoC;
 
-            if (peconhentoC == 'S' || peconhentoC == 's')
-                peconhento = true;
+                if (peconhentoC == 'S' || peconhentoC == 's')
+                    peconhento = true;
 
-            cout << "Poe Ovos? (S | N)";
-            cin >> poeOvosC;
+                cout << "Poe Ovos? (S | N)";
+                cin >> poeOvosC;
 
-            if (poeOvosC == 'S' || poeOvosC == 's')
-                poeOvos = true;
+                if (poeOvosC == 'S' || poeOvosC == 's')
+                    poeOvos = true;
 
-            cout << "tem Carapaça? (S | N)";
-            cin >> temCarapacaC;
+                cout << "tem Carapaça? (S | N)";
+                cin >> temCarapacaC;
 
-            if (temCarapacaC == 'S' || temCarapacaC == 's')
-                temCarapaca = true;
+                if (temCarapacaC == 'S' || temCarapacaC == 's')
+                    temCarapaca = true;
 
-            cout << "Consegue Nadar? (S | N)";
-            cin >> consegueNadarC;
+                cout << "Consegue Nadar? (S | N)";
+                cin >> consegueNadarC;
 
-            if (consegueNadarC == 'S' || consegueNadarC == 's')
-                consegueNadar = true;
+                if (consegueNadarC == 'S' || consegueNadarC == 's')
+                    consegueNadar = true;
 
-            ReptelSilvestre* repteisSilvestre = new ReptelSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, temPernas, temNadadeiras, eVenenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
-            animal = repteisSilvestre;
-            
-            arqRepteisSilvestres << repteisSilvestre << endl;
-            
-            break;
-        default:
-            break;
+                animal = new ReptelSilvestre(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tipoSilvestre, origem, ameacadoDeExtincao, temPernas, temNadadeiras, eVenenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
+                
+                arqRepteisSilvestres << animal << endl;
+                
+                break;
+            default:
+                break;
         }
-    }
+    } 
     else
     {
-        switch (tipoClassificacao)
-        {
-        case 1:
-            // Ave
-            cout << "Cor das penas: ";
-            cin >> corDasPenas;
+        switch (tipoClassificacao){
+            case 1:
+                // Ave
+                cout << "Cor das penas: ";
+                cin >> corDasPenas;
 
-            cout << "Tamanho do bico em cm: ";
-            cin >> tamanhoDoBico;
+                cout << "Tamanho do bico em cm: ";
+                cin >> tamanhoDoBico;
 
-            cout << "Tamanho das penas em cm: ";
-            cin >> tamanhoDasPenas;
+                cout << "Tamanho das penas em cm: ";
+                cin >> tamanhoDasPenas;
 
-            Ave *ave = new Ave(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tamanhoDoBico, tamanhoDasPenas);
-            animal = ave;
+                animal = new Ave(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, tamanhoDoBico, tamanhoDasPenas);
 
-            arqAves << ave << endl;
+                arqAves << animal << endl;
 
-            break;
-        case 2:
-            // Anfibio
-            cout << "É venenoso? (S | N): ";
-            cin >> venenosoC;
+                break;
+            case 2:
+                // Anfibio
+                cout << "É venenoso? (S | N): ";
+                cin >> venenosoC;
 
-            if (venenosoC == 'S' || venenosoC == 's')
-                eVenenoso = true;
+                if (venenosoC == 'S' || venenosoC == 's')
+                    eVenenoso = true;
 
-            cout << "Tem Pernas? (S | N): ";
-            cin >> temPernasC;
+                cout << "Tem Pernas? (S | N): ";
+                cin >> temPernasC;
 
-            if (temPernasC == 'S' || temPernasC == 's')
-                temPernas = true;
-            Anfibio *anfibio = new Anfibio(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, eVenenoso, temPernas);
-            animal = anfibio;
+                if (temPernasC == 'S' || temPernasC == 's')
+                    temPernas = true;
+                animal = new Anfibio(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, eVenenoso, temPernas);
 
-            arqAnfibios << anfibio << endl;
+                arqAnfibios << animal << endl;
 
-            break;
-        case 3:
-            // Mamifero
-            cout << "Habitat: ";
-            cin >> habitat;
+                break;
+            case 3:
+                // Mamifero
+                cout << "Habitat: ";
+                cin >> habitat;
 
-            cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: ";
-            cin >> tipoMamifero;
+                cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: ";
+                cin >> tipoMamifero;
 
-            cout << "Quantidade de dentes: ";
-            cin >> quantidadeDeDentes;
+                cout << "Quantidade de dentes: ";
+                cin >> quantidadeDeDentes;
 
-            cout << "Tem Asas? (S | N): ";
-            cin >> temAsasC;
+                cout << "Tem Asas? (S | N): ";
+                cin >> temAsasC;
 
-            if (temAsasC == 'S' || temAsasC == 's')
-                temAsas = true;
+                if (temAsasC == 'S' || temAsasC == 's')
+                    temAsas = true;
 
-            Mamifero *manifero = new Mamifero(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, habitat, (Tipo)tipoMamifero, quantidadeDeDentes, temAsas);
-            animal = manifero;
+                animal = new Mamifero(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, habitat, (Tipo)tipoMamifero, quantidadeDeDentes, temAsas);
 
-            arqManiferos << manifero << endl;
+                arqMamiferos << animal << endl;
 
-            break;
-        case 4:
-            // Reptil
-            cout << "Tem pernas? (S | N): ";
-            cin >> temPernasC;
+                break;
+            case 4:
+                // Reptil
+                cout << "Tem pernas? (S | N): ";
+                cin >> temPernasC;
 
-            if (temPernasC == 'S' || temPernasC == 's')
-                temPernas = true;
+                if (temPernasC == 'S' || temPernasC == 's')
+                    temPernas = true;
 
-            cout << "Tem nadadeiras? (S | N): ";
-            cin >> temNadadeirasC;
+                cout << "Tem nadadeiras? (S | N): ";
+                cin >> temNadadeirasC;
 
-            if (temNadadeirasC == 'S' || temNadadeirasC == 's')
-                temNadadeiras = true;
+                if (temNadadeirasC == 'S' || temNadadeirasC == 's')
+                    temNadadeiras = true;
 
-            cout << "É venenoso? (S | N): ";
-            cin >> venenosoC;
+                cout << "É venenoso? (S | N): ";
+                cin >> venenosoC;
 
-            if (venenosoC == 'S' || venenosoC == 's')
-                eVenenoso = true;
+                if (venenosoC == 'S' || venenosoC == 's')
+                    eVenenoso = true;
 
-            cout << "É peçonhento? (S | N): ";
-            cin >> peconhentoC;
+                cout << "É peçonhento? (S | N): ";
+                cin >> peconhentoC;
 
-            if (peconhentoC == 'S' || peconhentoC == 's')
-                peconhento = true;
+                if (peconhentoC == 'S' || peconhentoC == 's')
+                    peconhento = true;
 
-            cout << "Poe Ovos? (S | N): ";
-            cin >> poeOvosC;
+                cout << "Poe Ovos? (S | N): ";
+                cin >> poeOvosC;
 
-            if (poeOvosC == 'S' || poeOvosC == 's')
-                poeOvos = true;
+                if (poeOvosC == 'S' || poeOvosC == 's')
+                    poeOvos = true;
 
-            cout << "tem Carapaça? (S | N): ";
-            cin >> temCarapacaC;
+                cout << "tem Carapaça? (S | N): ";
+                cin >> temCarapacaC;
 
-            if (temCarapacaC == 'S' || temCarapacaC == 's')
-                temCarapaca = true;
+                if (temCarapacaC == 'S' || temCarapacaC == 's')
+                    temCarapaca = true;
 
-            cout << "Consegue Nadar? (S | N): ";
-            cin >> consegueNadarC;
+                cout << "Consegue Nadar? (S | N): ";
+                cin >> consegueNadarC;
 
-            if (consegueNadarC == 'S' || consegueNadarC == 's')
-                consegueNadar = true;
+                if (consegueNadarC == 'S' || consegueNadarC == 's')
+                    consegueNadar = true;
 
-            Reptel *reptel = new Reptel(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, temPernas, temNadadeiras, eVenenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
-            animal = reptel;
+                animal = new Reptel(especie, sexo, tamanho, cor, preco, tipoDeAlimentacao, veterinarioResponsavel, tratadorResponsavel, temPernas, temNadadeiras, eVenenoso, peconhento, poeOvos, temCarapaca, consegueNadar);
 
-            arqRepteis << reptel << endl;
+                arqRepteis << animal << endl;
 
-            break;
-        default:
-            break;
+                break;
+            default:
+                break;
         }
     }
 
@@ -772,6 +762,7 @@ void PetFera::atualizarAnimal(string nome)
     char temPernas;
     string habitat;
     int tipoMamifero;
+    Tipo tipo;
     int quantidadeDeDentes;
     char temAsas;
     char temNadadeiras;
@@ -787,7 +778,7 @@ void PetFera::atualizarAnimal(string nome)
         {
             if (animal->getEspecie() == nome)
             {
-                ;
+                
                 // Alterar espécie
                 cout << "Alterar espécie? (S | N) ";
                 cin >> escolha;
@@ -1398,19 +1389,6 @@ void PetFera::atualizarAnimal(string nome)
                     mamiferoSilvestre->setHabitat(habitat);
                 }
 
-                // Alterar habitat
-                cout << "Alterar habitat? (S | N) ";
-                cin >> escolha;
-
-                assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');
-
-                if (escolha == 'S' || escolha == 's')
-                {
-                    cout << "Novo habitat:";
-                    cin >> habitat;
-                    mamiferoSilvestre->setHabitat(habitat);
-                }
-
                 // Alterar tipo
                 cout << "Alterar tipo de mamifero? (S | N) ";
                 cin >> escolha;
@@ -1423,10 +1401,38 @@ void PetFera::atualizarAnimal(string nome)
                     cout << "tipo: (1) Cursorial, (2) Saltador, (3) Plantigrado, (4) Fossorial, (5) Arboricola, (6) Voador, (7) Aquatico: ";
                     cin >> tipoMamifero;
 
-                    mamiferoSilvestre->setTipo((Tipo)tipoMamifero);
+                    if (tipoMamifero == 1){
+                        tipo = Tipo::Cursorial;
+                    }
+
+                    if (tipoMamifero == 2){
+                        tipo = Tipo::Saltador;
+                    }
+
+                    if (tipoMamifero == 3){
+                        tipo = Tipo::Plantigrado;
+                    }
+
+                    if (tipoMamifero == 4){
+                        tipo = Tipo::Fossorial;
+                    }
+
+                    if (tipoMamifero == 5){
+                        tipo = Tipo::Arboricola;
+                    }
+
+                    if (tipoMamifero == 6){
+                        tipo = Tipo::Voador;
+                    }
+
+                    if (tipoMamifero == 7){
+                        tipo = Tipo::Aquatico;
+                    }
+                    
+                    mamiferoSilvestre->setTipo(tipo);
                 }
 
-                // Alterar tipo
+                // Alterar quantidade de dentes
                 cout << "Alterar quantidade de dentes? (S | N) ";
                 cin >> escolha;
 
@@ -1478,8 +1484,8 @@ void PetFera::atualizarAnimal(string nome)
                     mamiferoSilvestre->setTipoSilvestre(tipoSilvestre);
                 }
 
-                // Alterar tamanho das asas
-                cout << "Alterar tamanho das asas? (S | N) ";
+                // Alterar ameaçado de extinção
+                cout << "Alterar ameaçado de extinção? (S | N) ";
                 cin >> escolha;
 
                 assert(escolha == 'S' || escolha == 's' || escolha == 'N' || escolha == 'n');

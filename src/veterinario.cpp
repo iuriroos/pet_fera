@@ -23,8 +23,8 @@ void Veterinario::setCrmv(string crmv) {
 // }
 
 ostream& operator<< (ostream& o, Veterinario* const v) {
-	o <<
-		v->getNome() << ";"
+	o
+		<< v->getNome() << ";"
 		<< v->getCpf() << ";"
 		<< v->getMatricula() << ";"
 		<< v->getSalario() << ";"

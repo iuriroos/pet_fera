@@ -34,8 +34,8 @@ void Tratador::setNivelDeSeguranca(Cor nivel_de_seguranca) {
 // }
 
 ostream& operator<< (ostream& o, Tratador* const t) {
-	o <<
-		t->getNome() << ";"
+	o
+		<< t->getNome() << ";"
 		<< t->getCpf() << ";"
 		<< t->getMatricula() << ";"
 		<< t->getSalario() << ";"
