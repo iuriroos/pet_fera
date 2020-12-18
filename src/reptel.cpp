@@ -111,7 +111,7 @@ ostream& operator<< (ostream& o, Reptel* const r) {
         << peconhento << ";"
         << poeOvos << ";"
         << temCarapacas << ";"
-        << consegueNadar << ";";
+        << consegueNadar;
 
 	return o;
 }

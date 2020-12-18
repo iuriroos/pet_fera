@@ -62,7 +62,7 @@ ostream& operator<< (ostream& o, Silvestre* const s) {
 		<< s->getTipoDeAlimentacao() << ";"
         << nativoOrExotico << ";"
         << s->getOrigem() << ";"
-        << ameacado << ";";
+        << ameacado;
 
 	return o;
 }

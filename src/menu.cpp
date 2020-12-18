@@ -1,4 +1,9 @@
 #include "menu.hpp"
+#include <fstream>
+#include <sstream>
+
+using std::ifstream;
+using std::stringstream;
 
 int menuPetFera(PetFera* petfera) {
     int op;
@@ -7,6 +12,24 @@ int menuPetFera(PetFera* petfera) {
     cout << "==============================================================" << endl;
     cout << "                    Bem vindo ao Pet Fera!                    " << endl;
     cout << "==============================================================" << endl;
+
+    //Carrega os dados dos animais e funcionários cadastrados
+    ifstream arqVeterinarios("veterinarios.dat");
+    string linha, palavra;
+
+    if (arqVeterinarios.is_open()){
+        while (getline(arqVeterinarios, linha)){
+            stringstream s(linha);
+            vector<string> tokens;
+            while (getline(s, palavra, ';')){
+                tokens.push_back(palavra);
+            }
+
+            if (tokens.size() == 6){
+                petfera->veterinarios.push_back(new Veterinario(tokens.at(0), tokens.at(1), tokens.at(2), stod(tokens.at(3)), tokens.at(4), tokens.at(5)));
+            }   
+        }
+    } 
 
     do {
         cout << endl << "Menu principal:" << endl << endl;

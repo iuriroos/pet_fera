@@ -53,7 +53,7 @@ ostream& operator<< (ostream& o, Anfibio* const a) {
 		<< a->getPreco() << ";"
 		<< a->getTipoDeAlimentacao() << ";"
         << venenoso << ";"
-        << temPernas << ";";
+        << temPernas;
 
 	return o;
 }

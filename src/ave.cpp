@@ -43,7 +43,7 @@ ostream& operator<< (ostream& o, Ave* const a) {
 		<< a->getPreco() << ";"
 		<< a->getTipoDeAlimentacao() << ";"
         << a->getTamanhoDoBico() << ";"
-        << a->getTamanhoDasPenas() << ";";
+        << a->getTamanhoDasPenas();
 
 	return o;
 }

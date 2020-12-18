@@ -49,7 +49,7 @@ ostream& operator<< (ostream& o, AnfibioSilvestre* const as) {
         << temPernas << ";"
         << nativoOrExotico << ";" 
         << as->getOrigem() << ";"
-        << ameacado << ";";
+        << ameacado;
 
 	return o;
 }

@@ -86,7 +86,7 @@ ostream& operator<< (ostream& o, Animal* const a) {
 	    << a->getEspecie() << ";"
 		<< a->getCor() << ";"
 		<< a->getPreco() << ";"
-		<< a->getTipoDeAlimentacao() << ";";
+		<< a->getTipoDeAlimentacao();
 
 	return o;
 }
